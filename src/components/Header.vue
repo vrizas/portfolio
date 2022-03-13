@@ -1,6 +1,6 @@
 <template>
     <header>
-        <a href="/"><img src="../assets/logo.svg" alt="Vrizas Logo"></a>
+        <a href="/"><img src="../assets/img/logo.svg" alt="Vrizas Logo"></a>
     </header>
 </template>
 
@@ -11,10 +11,13 @@ export default {
 </script>
 
 <style lang="scss">
+    @import '../assets/scss/variables';
+
     header {
-        padding: 20px 25px;
+        padding: 20px $primaryPadX;
         a {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
             min-width: 44px;
             min-height: 44px;
             img {
