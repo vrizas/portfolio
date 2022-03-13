@@ -1,6 +1,6 @@
 <template>
     <header>
-        <a href="/"><img src="../assets/img/logo.svg" alt="Vrizas Logo"></a>
+        <router-link to="/"><img src="../assets/img/logo.svg" alt="Vrizas Logo"></router-link>
     </header>
 </template>
 

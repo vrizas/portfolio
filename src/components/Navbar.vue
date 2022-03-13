@@ -1,15 +1,20 @@
 <template>
     <nav>
-        <a href="/" class="active"><ion-icon name="home"></ion-icon></a>
-        <a href="/about"><ion-icon name="card"></ion-icon></a>
-        <a href="/portfolio"><ion-icon name="briefcase"></ion-icon></a>
-        <a href="/contact"><ion-icon name="mail"></ion-icon></a>
+        <router-link to="/" :class="{active:$route.name==='home'}"><ion-icon name="home"></ion-icon></router-link>
+        <router-link to="/about" :class="{active:$route.name==='about'}"><ion-icon name="card"></ion-icon></router-link>
+        <router-link to="/portfolio" :class="{active:$route.name==='portfolio'}"><ion-icon name="briefcase"></ion-icon></router-link>
+        <router-link to="/contact" :class="{active:$route.name==='contact'}"><ion-icon name="mail"></ion-icon></router-link>
     </nav>
 </template>
 
 <script>
 export default {
-    name: 'Navbar'
+    name: 'Navbar',
+    data() {
+        return {
+            
+        }
+    },
 }
 </script>
 
