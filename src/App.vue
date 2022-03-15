@@ -1,19 +1,20 @@
 <template>
   <Header />
-  <!-- <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/> -->
+  <main>
+    <router-view/> 
+  </main>
+  <Navbar />
 </template>
 
 <script>
 import Header from '@/components/Header.vue'
+import Navbar from '@/components/Navbar.vue'
 
 export default {
   name: 'App',
   components: {
-    Header
+    Header,
+    Navbar
   }
 }
 </script>
@@ -41,15 +42,16 @@ $blue: blue;
 //   color: #42b983;
 // }
 
-$primaryColor: #F5DF4E;
-$secondaryColor: #2B2A2A;
-$blackColor: #191919;
-$whiteColor: #F7F7F7;
+@import './assets/scss/variables';
 
-body {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
   background-color: $blackColor;
 }
+
 </style>
