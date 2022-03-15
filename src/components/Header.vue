@@ -14,7 +14,8 @@ export default {
     @import '../assets/scss/variables';
 
     header {
-        padding: 20px $primaryPadX;
+        height: 60px;
+        padding: 15px $primaryPadX;
         a {
             display: inline-flex;
             align-items: center;

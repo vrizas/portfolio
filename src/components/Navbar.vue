@@ -28,15 +28,9 @@ export default {
         left: 0;
         width: 100vw;
         background-color: $secondaryColor;
-        a {
-            color: $whiteColor;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
+        a { 
             width: 100%;
             height: 60px;
-            min-width: 44px;
-            min-height: 44px;
             ion-icon {
                 font-size: 24px;
             }
