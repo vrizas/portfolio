@@ -37,15 +37,18 @@ export default {
 
 <style lang="scss">
   @import '../assets/scss/variables';
+
   .home {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 25px;
+
     .photo {
       width: 100%;
       text-align: center;
       position: relative;
+
       img {
         position: relative;
         z-index: 1;
@@ -54,6 +57,7 @@ export default {
         box-shadow: inset 5px 5px 6px rgba(0, 0, 0, 0.25);
         filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.25)) drop-shadow(-4px -4px 6px rgba(255, 255, 255, 0.25));
       }
+
       .back-text {
         position: absolute;
         top: 50%;
@@ -61,26 +65,30 @@ export default {
         transform: translateY(-50%) rotate(-90deg);
         font-weight: $fwBold;
         font-size: $fs-h1;
-        color: $secondaryColor;
-        
+        color: $secondaryColor; 
       }
     }
+
     article {
       text-align: center;
+
       h1,h2 {
          text-transform: uppercase;
       }
+
       h1 {
         font-size: $fs-h5;
         font-weight: $fwBold;
         letter-spacing: 0.07em; 
       }
+
       h2 {
         font-size: $fs-base;
         font-weight: $fwSemiBold;
         letter-spacing: 0.05em;
         color: $primaryColor;
       }
+
       p {
         margin-top: 15px;
         font-weight: $fwRegular;
@@ -88,14 +96,17 @@ export default {
         line-height: 18px;
       }
     }
+
     .action {
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 25px;
+
       .socials {
         display: flex;
         gap: 15px;
+
         a {
           background-color: $secondaryColor;
           border-radius: 50%;
@@ -103,11 +114,13 @@ export default {
           min-height: 35px;
           box-shadow: inset 2px 2px 3px rgba(0, 0, 0, 0.25);
           filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.25)) drop-shadow(-1px -1px 3px rgba(255, 255, 255, 0.25));
+
           ion-icon {
             font-size: $fs-base;
           }
         }
       }
+
       .contact {
         font-family: $ff-inter;
         font-weight: $fwSemiBold;
@@ -120,6 +133,7 @@ export default {
         min-height: 30px;
         box-shadow: inset 2px 2px 3px rgba(0, 0, 0, 0.25);
         filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.25)) drop-shadow(-1px -1px 3px rgba(255, 255, 255, 0.25));
+        
         ion-icon {
           font-size: $fs-h5;
           margin-left: 5px;

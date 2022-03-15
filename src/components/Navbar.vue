@@ -28,13 +28,16 @@ export default {
         left: 0;
         width: 100vw;
         background-color: $secondaryColor;
+        
         a { 
             width: 100%;
             height: 60px;
+
             ion-icon {
                 font-size: 24px;
             }
         }
+
         a.active {
             color: $primaryColor;
         }
