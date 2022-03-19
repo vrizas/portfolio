@@ -52,19 +52,20 @@ export default {
       img {
         position: relative;
         z-index: 1;
-        width: 220px;
+        height: 30vh;
         border-radius: 50%;
-        box-shadow: inset 5px 5px 6px rgba(0, 0, 0, 0.25);
-        filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.25)) drop-shadow(-4px -4px 6px rgba(255, 255, 255, 0.25));
+        box-shadow: inset 3px 3px 4px rgba(0, 0, 0, 0.25);
+        border: 5px solid #2B2A2A;
       }
 
       .back-text {
         position: absolute;
         top: 50%;
-        left: -55px;
+        left: -80px;
         transform: translateY(-50%) rotate(-90deg);
         font-weight: $fwBold;
-        font-size: $fs-h1;
+        font-size: 54px;
+        letter-spacing: 0.05em;
         color: $secondaryColor; 
       }
     }
@@ -113,7 +114,7 @@ export default {
           min-width: 35px;
           min-height: 35px;
           box-shadow: inset 2px 2px 3px rgba(0, 0, 0, 0.25);
-          filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.25)) drop-shadow(-1px -1px 3px rgba(255, 255, 255, 0.25));
+          filter: drop-shadow(.5px .5px 2px rgba(0, 0, 0, 0.25)) drop-shadow(-.5px -.5px 2px rgba(255, 255, 255, 0.25));
 
           ion-icon {
             font-size: $fs-base;
@@ -138,6 +139,12 @@ export default {
           font-size: $fs-h5;
           margin-left: 5px;
         }
+      }
+    }
+
+    @media screen and (max-width: 375px) {
+      .back-text {
+        display: none;
       }
     }
   }
