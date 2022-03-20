@@ -108,6 +108,7 @@ export default {
     display: flex;
     flex-direction: column;
     gap: 60px;
+    padding: 10px $primaryPadX 60px $primaryPadX;
 
     h3 {
       width: fit-content;
