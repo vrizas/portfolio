@@ -24,13 +24,9 @@
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
 export default {
   name: 'HomeView',
   components: {
-    HelloWorld
   }
 }
 </script>
@@ -78,13 +74,13 @@ export default {
       }
 
       h1 {
-        font-size: $fs-h5;
+        font-size: $fs-h4;
         font-weight: $fwBold;
         letter-spacing: 0.07em; 
       }
 
       h2 {
-        font-size: $fs-base;
+        font-size: $fs-h5;
         font-weight: $fwSemiBold;
         letter-spacing: 0.05em;
         color: $primaryColor;
@@ -93,7 +89,6 @@ export default {
       p {
         margin-top: 15px;
         font-weight: $fwRegular;
-        font-size: $fs-xs;
         line-height: 18px;
       }
     }
@@ -125,7 +120,7 @@ export default {
       .contact {
         font-family: $ff-inter;
         font-weight: $fwSemiBold;
-        font-size: $fs-sm;
+        font-size: $fs-xs;
         background-color: $primaryColor;
         color: $blackColor;
         padding: 10px 15px;
