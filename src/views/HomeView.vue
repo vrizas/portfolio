@@ -1,8 +1,4 @@
 <template>
-  <!-- <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div> -->
   <section class="home">
     <div class="photo">
       <img src="../assets/img/vrizas.png" alt="Vrizas Photo">
@@ -39,11 +35,13 @@ export default {
     flex-direction: column;
     align-items: center;
     gap: 25px;
+    padding: 10px $primaryPadX 60px $primaryPadX;
 
     .photo {
       width: 100%;
       text-align: center;
       position: relative;
+      margin-top: 20px;
 
       img {
         position: relative;

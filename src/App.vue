@@ -42,7 +42,7 @@ $blue: blue;
 //   color: #42b983;
 // }
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@300;400;500;600;700&display=swap');
 @import './assets/scss/variables';
 
 * {
@@ -70,6 +70,13 @@ a {
   text-decoration: none;
 }
 
+button {
+  background-color: transparent;
+  border: none;
+  color: $whiteColor;
+  font-family: $ff-poppins;
+}
+
 a, button {
   min-width: 44px;
   min-height: 44px;
@@ -77,7 +84,6 @@ a, button {
 
 main {
   min-height: calc(100vh - (60px * 2));
-  padding: 25px $primaryPadX;
   margin-bottom: 60px;
 }
 
