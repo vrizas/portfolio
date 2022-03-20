@@ -42,7 +42,7 @@ $blue: blue;
 //   color: #42b983;
 // }
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@300;400;500;600;700&display=swap');
 @import './assets/scss/variables';
 
 * {
@@ -59,6 +59,7 @@ body {
 
 p {
   font-family: $ff-inter;
+  font-size: $fs-xs;
 }
 
 a {

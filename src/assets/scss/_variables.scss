@@ -1,8 +1,9 @@
 $primaryColor: #F5DF4E;
 $secondaryColor: #2B2A2A;
 $blackColor: #191919;
-$whiteColor: #F7F7F7;
+$whiteColor: #f7f7f7;
 
+$fwLight: 300;
 $fwRegular: 400;
 $fwMedium: 500;
 $fwSemiBold: 600;
@@ -14,10 +15,11 @@ $fs-h3: 31px;
 $fs-h4: 25px;
 $fs-h5: 20px;
 $fs-base: 18px;
-$fs-sm: 15px;
-$fs-xs: 12px;
+$fs-sm: 16px;
+$fs-xs: 14px;
+$fs-xxs: 12px;
 
 $ff-poppins: 'Poppins', sans-serif;
 $ff-inter: 'Inter', sans-serif;
 
-$primaryPadX: 25px;
+$primaryPadX: 20px;
