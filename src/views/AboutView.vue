@@ -76,7 +76,7 @@
         </section> -->
       </div>
     </section>
-    <router-link to="/" class="download-cv">Unduh CV <ion-icon name="download"></ion-icon></router-link>
+    <router-link to="/" class="download-cv-btn">Unduh CV <ion-icon name="download"></ion-icon></router-link>
   </section>
 </template>
 
@@ -297,7 +297,7 @@ export default {
       }
     }
 
-    .download-cv {
+    .download-cv-btn {
       font-family: $ff-inter;
       font-weight: $fwSemiBold;
       font-size: $fs-xs;

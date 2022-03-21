@@ -36,7 +36,7 @@
     <div class="hero" :style="{backgroundImage: `url(${heroImgSrc})`}">
         <article>
             <strong>Tertarik untuk bekerja sama?</strong>
-            <router-link to="/contact" class="contact">HUBUNGI SAYA <ion-icon name="arrow-forward-circle"></ion-icon></router-link>
+            <router-link to="/contact" class="contact-btn">HUBUNGI SAYA <ion-icon name="arrow-forward-circle"></ion-icon></router-link>
         </article>
     </div>
   </section>
@@ -266,7 +266,7 @@ export default {
                     font-size: $fs-h4;
                 }
 
-                .contact {
+                .contact-btn {
                     font-family: $ff-inter;
                     font-weight: $fwSemiBold;
                     font-size: $fs-xs;
