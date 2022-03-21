@@ -11,10 +11,10 @@
     </article>
     <div class="action">
       <div class="socials">
-        <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+        <a href="#"><ion-icon name="logo-github"></ion-icon></a>
         <a href="#"><ion-icon name="logo-linkedin"></ion-icon></a>
       </div>
-      <router-link to="/contact" class="contact">HUBUNGI SAYA <ion-icon name="arrow-forward-circle"></ion-icon></router-link>
+      <router-link to="/contact" class="contact-btn">HUBUNGI SAYA <ion-icon name="arrow-forward-circle"></ion-icon></router-link>
     </div>
   </section>
 </template>
@@ -115,7 +115,7 @@ export default {
         }
       }
 
-      .contact {
+      .contact-btn {
         font-family: $ff-inter;
         font-weight: $fwSemiBold;
         font-size: $fs-xs;
