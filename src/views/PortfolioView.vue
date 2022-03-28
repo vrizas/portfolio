@@ -166,9 +166,9 @@ export default {
             .active {
                 color: $whiteColor;
 
-                &::first-letter {
-                    // color: $blackColor;
-                }
+                // &::first-letter {
+                //     color: $blackColor;
+                // }
             }
 
             .tablink:nth-child(1).active ~ .active-dot {
