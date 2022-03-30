@@ -132,7 +132,7 @@ export default {
     .portfolio {
         padding-bottom: 60px;
         .wrapper {
-            padding: 10px $primaryPadX;
+            padding: 10px 20px;
         }
 
         h3 {

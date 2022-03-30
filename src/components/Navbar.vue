@@ -1,10 +1,22 @@
 <template>
     <nav>
-        <router-link to="/" :class="{active:$route.name==='home'}" :onclick="activeHandler"><ion-icon name="home"></ion-icon></router-link>
-        <router-link to="/about" :class="{active:$route.name==='about'}" :onclick="activeHandler"><ion-icon name="card"></ion-icon></router-link>
-        <router-link to="/portfolio" :class="{active:$route.name==='portfolio'}" :onclick="activeHandler"><ion-icon name="briefcase"></ion-icon></router-link>
-        <router-link to="/contact" :class="{active:$route.name==='contact'}" :onclick="activeHandler"><ion-icon name="mail"></ion-icon></router-link>
-        <div class="active-underline" ref="activeUnderline"></div>
+        <router-link to="/" :class="{active:$route.name==='home'}" :onclick="activeHandler">
+            <ion-icon name="home"></ion-icon>
+            <span class="text">Home</span>
+        </router-link>
+        <router-link to="/about" :class="{active:$route.name==='about'}" :onclick="activeHandler">
+            <ion-icon name="card"></ion-icon>
+            <span class="text">About</span>
+        </router-link>
+        <router-link to="/portfolio" :class="{active:$route.name==='portfolio'}" :onclick="activeHandler">
+            <ion-icon name="briefcase"></ion-icon>
+            <span class="text">Portfolio</span>
+        </router-link>
+        <router-link to="/contact" :class="{active:$route.name==='contact'}" :onclick="activeHandler">
+            <ion-icon name="mail"></ion-icon>
+            <span class="text">Contact</span>
+        </router-link>
+        <div class="indicator" ref="indicator"></div>
     </nav>
 </template>
 
@@ -20,15 +32,15 @@ export default {
     },
     computed: {
         activeHandler() {
-            if(this.$route.name === 'home') {
-                gsap.to(this.$refs.activeUnderline, {duration: 0.2, x: `${100 * 0 / 4}%`, ease: 'power2'})
-            } else if(this.$route.name === 'about') {
-                gsap.to(this.$refs.activeUnderline, {duration: 0.2, x: `${100 * 4 / 4}%`, ease: 'power2'})
-            } else if(this.$route.name === 'portfolio') {
-                gsap.to(this.$refs.activeUnderline, {duration: 0.2, x: `${100 * 8 / 4}%`, ease: 'power2'})
-            } else if(this.$route.name === 'contact') {
-                gsap.to(this.$refs.activeUnderline, {duration: 0.2, x: `${100 * 12  / 4}%`, ease: 'power2'})
-            }
+            // if(this.$route.name === 'home') {
+            //     gsap.to(this.$refs.indicator, {duration: 0.2, x: `${100 * 0 / 4}%`, ease: 'power2'})
+            // } else if(this.$route.name === 'about') {
+            //     gsap.to(this.$refs.indicator, {duration: 0.2, x: `${100 * 4 / 4}%`, ease: 'power2'})
+            // } else if(this.$route.name === 'portfolio') {
+            //     gsap.to(this.$refs.indicator, {duration: 0.2, x: `${100 * 8 / 4}%`, ease: 'power2'})
+            // } else if(this.$route.name === 'contact') {
+            //     gsap.to(this.$refs.indicator, {duration: 0.2, x: `${100 * 12  / 4}%`, ease: 'power2'})
+            // }
         }
     },
 }
@@ -40,6 +52,7 @@ export default {
     nav {
         display: flex;
         position: fixed;
+        z-index: 9999;
         bottom: 0;
         left: 0;
         width: 100vw;
@@ -52,19 +65,135 @@ export default {
             ion-icon {
                 font-size: 24px;
             }
+
+            .text {
+                display: none;
+            }
+
+            &.active {
+                color: $primaryColor;
+            }
         }
 
-        a.active {
-            color: $primaryColor;
-        }
-
-        .active-underline {
+        .indicator {
             width: calc(100% / 4);
             height: 4px;
             background-color: $primaryColor; 
             position: absolute;
             bottom: 0;
             left: 0;
+            transition: .5s;
         }
+        
+        a:nth-child(1).active ~ .indicator {
+            transform: translateX(calc(100% / 4 * 0));
+        }
+
+        a:nth-child(2).active ~ .indicator {
+            transform: translateX(calc(100% / 4 * 4));
+        }
+
+        a:nth-child(3).active ~ .indicator {
+            transform: translateX(calc(100% / 4 * 8));
+        }
+
+        a:nth-child(4).active ~ .indicator {
+            transform: translateX(calc(100% / 4 * 12));
+        }
+    }
+
+    @media screen and (min-width: 1000px) {
+        nav {
+            width: inherit;
+            height: 370px;
+            padding: 25px 0;
+            flex-direction: column;
+            bottom: 50%;
+            transform: translateY(50%);
+            border-radius: 0 10px 10px 0;
+            
+            a { 
+                width: 60px;
+                height: 80px;
+                position: relative;
+
+                ion-icon {
+                    position: relative;
+                    transition: .5s;
+                }
+
+                &.active ion-icon {
+                    position: relative;
+                    z-index: 1;
+                    transform: translateX(31px);
+                    color: $blackColor;
+                }
+
+                .text {
+                    display: inherit;
+                    font-size: $fs-xxs;
+                    position: absolute;
+                    transition: .5s;
+                    opacity: 0;
+                }
+
+                &.active .text {
+                    opacity: 1;
+                    transform: translateY(40px);
+                }
+            }
+
+            .indicator  {
+                width: 60px;
+                height: 60px;
+                background-color: $primaryColor;
+                top: 35px;
+                bottom: initial;
+                left: 50%;
+                border-radius: 50%;
+                border: 6px solid $blackColor;
+                transition: .5s;
+            }
+
+            .indicator::before {
+                content: '';
+                position: absolute;
+                top: -18px;
+                right: 50%;
+                width: 15px;
+                height: 15px;
+                background-color: transparent;
+                border-bottom-right-radius: 15px;
+                box-shadow: 5px 1.5px 0 0 $blackColor;
+            }
+            .indicator::after {
+                content: '';
+                position: absolute;
+                bottom: -18px;
+                right: 50%;
+                width: 15px;
+                height: 15px;
+                background-color: transparent;
+                border-top-right-radius: 15px;
+                box-shadow: 5px -1.5px 0 $blackColor;
+            }
+
+            a:nth-child(1).active ~ .indicator {
+                transform: translateY(calc(80px * 0));
+            }
+
+            a:nth-child(2).active ~ .indicator {
+                transform: translateY(calc(80px * 1));
+            }
+
+            a:nth-child(3).active ~ .indicator {
+                transform: translateY(calc(80px * 2));
+            }
+
+            a:nth-child(4).active ~ .indicator {
+                transform: translateY(calc(80px * 3));
+            }
+        }
+
     }
 </style>

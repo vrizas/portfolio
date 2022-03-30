@@ -38,7 +38,7 @@ export default {
     @import '../assets/scss/variables';
 
     .contact {
-        padding: 10px $primaryPadX 60px $primaryPadX;
+        padding: 10px 20px 60px 20px;
 
         h3 {
             width: fit-content;

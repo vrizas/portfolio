@@ -15,7 +15,7 @@ export default {
 
     header {
         height: 60px;
-        padding: 15px $primaryPadX;
+        padding: 15px 20px;
 
         a {
             display: inline-flex;
@@ -27,6 +27,12 @@ export default {
                 width: 24px;
             }
             
+        }
+    }
+
+    @media screen and (min-width: 640px) {
+        header  {
+            padding: 20px 35px;
         }
     }
 </style>
