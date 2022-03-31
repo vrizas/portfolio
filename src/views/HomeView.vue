@@ -131,8 +131,8 @@ export default {
         border-radius: 5px;
         min-width: 30px;
         min-height: 30px;
-        box-shadow: inset 2px 2px 3px rgba(0, 0, 0, 0.25);
-        filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.25)) drop-shadow(-1px -1px 3px rgba(255, 255, 255, 0.25));
+        // box-shadow: inset 2px 2px 3px rgba(0, 0, 0, 0.25);
+        // filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.25)) drop-shadow(-1px -1px 3px rgba(255, 255, 255, 0.25));
         
         ion-icon {
           font-size: $fs-h5;
@@ -224,6 +224,10 @@ export default {
 
           .contact-btn {
             font-size: $fs-sm;
+
+            ion-icon {
+              font-size: $fs-h4;
+            }
           }
 
         }
@@ -283,6 +287,10 @@ export default {
 
           .contact-btn {
             font-size: $fs-sm;
+
+            ion-icon {
+              font-size: $fs-h4;
+            }
           }
 
         }
