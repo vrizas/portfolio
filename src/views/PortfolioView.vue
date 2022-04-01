@@ -111,14 +111,25 @@ export default {
     mounted() {
         window.onscroll = () => {
             if(this.$route.name === 'portfolio') {
+                const hero = this.$refs.hero;
                 const navbar = document.querySelector('nav')
-                let bounds = this.$refs.hero.getBoundingClientRect();
-                console.log(bounds.top)
-                if (bounds.top < 432 && bounds.top < window.innerHeight) {
-                    gsap.to(navbar, {duration: 0.5, x: -100, ease: 'power2'})
-                } else {
-                    gsap.to(navbar, {duration: 0.5, x: 0, ease: 'power2'})
+
+                function desktopResponsive(x) {
+                    if (x.matches) {
+                        let bounds = hero.getBoundingClientRect();
+
+                        if (bounds.top < 432 && bounds.top < window.innerHeight) {
+                            gsap.to(navbar, {duration: 0.5, x: -100, ease: 'power2'})
+                        } else {
+                            gsap.to(navbar, {duration: 0.5, x: 0, ease: 'power2'})
+                        }      
+                    }
                 }
+
+                var x = window.matchMedia("(min-width: 1000px)")
+                desktopResponsive(x)
+                x.addListener(desktopResponsive)
+
             }
         }
     }
