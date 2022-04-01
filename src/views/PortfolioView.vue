@@ -6,34 +6,12 @@
             <button class="tablink" :class="{active:tablink.name==='Semua'}" @click="e => tabHandler(e, tablink.tabDestination)" ref="tablinksRef" v-for="(tablink, index) in tablinks" :key="index">{{ tablink.name }}</button>
             <div class="active-dot"></div>
         </div>
-        <div class="tabcontents">
-            <div class="tabcontent-container" id="web-dev" ref="webDev">
-                <div class="tabcontent" :style="{backgroundImage: `url(${project.imgSrc})`}" v-for="(project, index) in portfolio.webDev" :key="index">
-                    <article>
-                        <h4>{{ project.name }}</h4>
-                        <p>{{ project.description }}</p>
-                        <div class="techs">
-                            <span v-for="(tech, index) in project.techs" :key="index">{{ tech }}</span>
-                        </div>
-                        <a :href="project.githubUrl"><ion-icon name="logo-github"></ion-icon></a>
-                    </article>
-                </div>
-            </div>
-            <div class="tabcontent-container" id="wordpress-dev" ref="wordpressDev">
-                <div class="tabcontent" :style="{backgroundImage: `url(${project.imgSrc})`}" v-for="(project, index) in portfolio.wordpressDev" :key="index">
-                    <article>
-                        <h4>{{ project.name }}</h4>
-                        <p>{{ project.description }}</p>
-                        <div class="techs">
-                            <span v-for="(tech, index) in project.techs" :key="index">{{ tech }}</span>
-                        </div>
-                        <a :href="project.githubUrl"><ion-icon name="logo-github"></ion-icon></a>
-                    </article>
-                </div>
-            </div>
-        </div>
+        <div class="tabcontents" ref="tabcontents">
+            <TabContent v-show="showWebDevelopment" v-for="(project, index) in portfolio.webDev" :key="index" :project="project" />
+            <TabContent v-show="showWordpressDevelopment" v-for="(project, index) in portfolio.wordpressDev" :key="index" :project="project" />
+        </div> 
     </div>
-    <div class="hero" :style="{backgroundImage: `url(${heroImgSrc})`}">
+    <div class="hero" :style="{backgroundImage: `url(${heroImgSrc})`}" ref="hero">
         <article>
             <strong>Tertarik untuk bekerja sama?</strong>
             <router-link to="/contact" class="contact-btn">HUBUNGI SAYA <ion-icon name="arrow-forward-circle"></ion-icon></router-link>
@@ -43,8 +21,14 @@
 </template>
 
 <script>
+import { gsap } from "gsap";
+import TabContent from '@/components/TabContent.vue'
+
 export default {
     name: 'PortfolioView',
+    components: {
+        TabContent
+    },
     data () {
         return {
             portfolio: {
@@ -100,21 +84,13 @@ export default {
                 { name: 'Semua', tabDestination: 'all' },
                 { name: 'Web Development', tabDestination: 'web-dev' },
                 { name: 'Wordpress Development', tabDestination: 'wordpress-dev' }
-            ]
+            ],
+            currentTablink: 'all'
         }
     },
     methods: {
         tabHandler(event, tabDestination) {
-            if (tabDestination === 'all') {
-                this.$refs.webDev.style.display = 'flex'
-                this.$refs.wordpressDev.style.display = 'flex'
-            } else if (tabDestination === this.$refs.webDev.id) {
-                this.$refs.webDev.style.display = 'flex'
-                this.$refs.wordpressDev.style.display = 'none'
-            } else if (tabDestination === this.$refs.wordpressDev.id) {
-                this.$refs.webDev.style.display = 'none'
-                this.$refs.wordpressDev.style.display = 'flex'
-            }
+            this.currentTablink = tabDestination
 
             this.$refs.tablinksRef.forEach(tablink => {
                 tablink.classList.remove('active')
@@ -123,6 +99,29 @@ export default {
             event.target.classList.add('active')
         }
     },
+    computed: {
+        showWebDevelopment() {
+            return this.currentTablink === 'all' || this.currentTablink === 'web-dev'
+        },
+
+        showWordpressDevelopment() {
+            return this.currentTablink === 'all' || this.currentTablink === 'wordpress-dev'
+        }
+    },
+    mounted() {
+        window.onscroll = () => {
+            if(this.$route.name === 'portfolio') {
+                const navbar = document.querySelector('nav')
+                let bounds = this.$refs.hero.getBoundingClientRect();
+                console.log(bounds.top)
+                if (bounds.top < 432 && bounds.top < window.innerHeight) {
+                    gsap.to(navbar, {duration: 0.5, x: -100, ease: 'power2'})
+                } else {
+                    gsap.to(navbar, {duration: 0.5, x: 0, ease: 'power2'})
+                }
+            }
+        }
+    }
 }
 </script>
 
@@ -161,6 +160,7 @@ export default {
                 font-size: $fs-xs;
                 margin-right: 20px;
                 padding: 0 4px;
+                cursor: pointer;
             }
 
             .active {
@@ -191,57 +191,11 @@ export default {
             }
         }
 
-        .tabcontent-container {
+        .tabcontents{
             display: flex;
             flex-direction: column;
             gap: 20px;
             margin-top: 20px;
-
-            .tabcontent {
-                width: 100%;
-                background-size: cover;
-                border-radius: 10px;
-
-                article {
-                    width: 100%;
-                    height: 100%;
-                    background: linear-gradient(0deg, rgba(43, 42, 42, 0.95), rgba(43, 42, 42, 0.95));
-                    border-radius: 10px;
-                    padding: 20px 15px;
-
-                    h4 {
-                        font-size: $fs-base;
-                        font-weight: $fwSemiBold;
-                        margin-bottom: 20px;
-                    }
-
-                    p {
-                        font-size: $fs-xs;
-                        font-weight: $fwLight;
-                    }
-
-                    .techs {
-                        display: flex;
-                        gap: 5px;
-                        margin-top: 15px;
-
-                        span {
-                            font-size: $fs-xxs;
-                            color: $greyColor;
-                        }
-                    }
-
-                    a {
-                        min-width: 24px;
-                        min-height: 24px;
-                        margin-top: 10px;
-
-                        ion-icon {
-                            font-size: $fs-h4;
-                        }   
-                    }
-                }
-            }
         }
 
         .hero {
@@ -289,4 +243,85 @@ export default {
             
         }
     }
+
+    @media screen and (min-width: 640px) {
+    .portfolio {
+        .wrapper {
+            padding: 10px 50px 60px 50px;
+        }
+
+        h3 {
+            font-size: $fs-base;
+        }
+
+        .tab {
+            button {
+                font-size: $fs-sm;
+            }
+        }
+
+        .tabcontents {
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+    }
+  }
+
+  @media screen and (min-width: 1000px) {
+    .portfolio {
+        .wrapper {
+            padding: 50px 100px;
+        }  
+
+        h3 {
+            border-width: 0;
+            position: relative;
+            font-size: $fs-h5;
+            margin-bottom: 60px;
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: 50%;
+                left: 50%;
+                transform: translate(-50%, 50%);
+                z-index: -1;
+                width: 70px;
+                height: 70px;
+                background-color: $secondaryColor;
+                border-radius: 50%;
+            }
+        }
+
+        .hero {
+            width: 100%;
+            height: 100vh;
+            background-size: cover;
+            margin-top: 40px;
+
+            article {
+                gap: 15px;
+                padding: 10px 40px;
+
+                strong {
+                    font-size: $fs-h3;
+                }
+
+                .contact-btn {
+                    font-size: $fs-sm;
+                    padding: 10px 15px;
+                    border-radius: 5px;
+                    min-width: 44px;
+                    min-height: 44px;
+                    
+                    ion-icon {
+                        font-size: $fs-h4;
+                    }
+                }
+
+            }
+
+        }
+    }
+  }
 </style>

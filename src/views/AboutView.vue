@@ -338,7 +338,7 @@ export default {
     .about {
       padding: 10px 50px 60px 50px;
       h3 {
-        font-size: $fs-h5;
+        font-size: $fs-base;
       }
 
       .top-content {
