@@ -28,6 +28,7 @@ export default {
   name: 'HomeView',
   mounted() {
     window.scrollTo({ top: 0, behavior: 'smooth' })
+    
     gsap.from(this.$refs.homeArticle, {duration: 0.5, x: -200, opacity: 0, ease: 'power2'})
     gsap.from(this.$refs.imgLayer2, {duration: 0.5, x: 200, opacity: 0, ease: 'power2'})
     gsap.from(this.$refs.imgLayer1, {duration: 0.5, x: 200, opacity: 0, ease: 'power2'})
