@@ -7,14 +7,14 @@
             <div class="active-dot"></div>
         </div>
         <div class="tabcontents" ref="tabcontents">
-            <TabContent v-show="showWebDevelopment" v-for="(project, index) in portfolio.webDev" :key="index" :project="project" />
-            <TabContent v-show="showWordpressDevelopment" v-for="(project, index) in portfolio.wordpressDev" :key="index" :project="project" />
+            <TabContent class="web-dev" v-show="showWebDevelopment" v-for="(project, index) in portfolio.webDev" :key="index" :project="project"/>
+            <TabContent class="wordpress-dev" v-show="showWordpressDevelopment" v-for="(project, index) in portfolio.wordpressDev" :key="index" :project="project"/>
         </div> 
     </div>
     <div class="hero" :style="{backgroundImage: `url(${heroImgSrc})`}" ref="hero">
         <article>
-            <strong>Tertarik untuk bekerja sama?</strong>
-            <router-link to="/contact" class="contact-btn">HUBUNGI SAYA <ion-icon name="arrow-forward-circle"></ion-icon></router-link>
+            <strong data-aos="fade-up">Tertarik untuk bekerja sama?</strong>
+            <router-link to="/contact" class="contact-btn" data-aos="fade-up" data-aos-delay="200">HUBUNGI SAYA <ion-icon name="arrow-forward-circle"></ion-icon></router-link>
         </article>
     </div>
   </section>
@@ -22,6 +22,8 @@
 
 <script>
 import { gsap } from "gsap";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import TabContent from '@/components/TabContent.vue'
 
 export default {
@@ -97,6 +99,26 @@ export default {
             });
 
             event.target.classList.add('active')
+            
+            if (tabDestination === 'all') {
+                const tabcontents = document.querySelectorAll('.tabcontent')
+
+                tabcontents.forEach((tabcontent, index) => {
+                    gsap.from(tabcontent, {duration: 0.5, scale: 0, opacity: 0, delay: (0.1 * index),  ease: 'power2'})
+                })
+            } else if (tabDestination === 'web-dev') {
+                const tabcontents = document.querySelectorAll('.tabcontent.web-dev')
+
+                tabcontents.forEach((tabcontent, index) => {
+                    gsap.from(tabcontent, {duration: 0.5, scale: 0, opacity: 0, delay: (0.1 * index),  ease: 'power2'})
+                })
+            } else if (tabDestination === 'wordpress-dev') {
+                const tabcontents = document.querySelectorAll('.tabcontent.wordpress-dev')
+
+                tabcontents.forEach((tabcontent, index) => {
+                    gsap.from(tabcontent, {duration: 0.5, scale: 0, opacity: 0, delay: (0.1 * index),  ease: 'power2'})
+                })
+            }
         }
     },
     computed: {
@@ -109,6 +131,7 @@ export default {
         }
     },
     mounted() {
+        AOS.init()
         window.scrollTo({ top: 0, behavior: 'smooth' })
 
         window.onscroll = () => {
@@ -130,9 +153,14 @@ export default {
                 var x = window.matchMedia("(min-width: 1000px)")
                 desktopResponsive(x)
                 x.addListener(desktopResponsive)
-
             }
         }
+
+        const tabcontents = document.querySelectorAll('.tabcontent')
+
+        tabcontents.forEach((tabcontent, index) => {
+            gsap.from(tabcontent, {duration: 0.5, scale: 0, opacity: 0, delay: (0.1 * index),  ease: 'power2'})
+        })
     }
 }
 </script>
@@ -242,8 +270,8 @@ export default {
                     border-radius: 5px;
                     min-width: 30px;
                     min-height: 30px;
-                    box-shadow: inset 2px 2px 3px rgba(0, 0, 0, 0.25);
-                    filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.25)) drop-shadow(-1px -1px 3px rgba(255, 255, 255, 0.25));
+                    // box-shadow: inset 2px 2px 3px rgba(0, 0, 0, 0.25);
+                    // filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.25)) drop-shadow(-1px -1px 3px rgba(255, 255, 255, 0.25));
                     
                     ion-icon {
                         font-size: $fs-h5;
