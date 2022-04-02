@@ -82,6 +82,10 @@ a, button {
   min-height: 44px;
 }
 
+ion-icon {
+ pointer-events: none;
+}
+
 main {
   min-height: calc(100vh - (60px * 2));
   margin-bottom: 60px;

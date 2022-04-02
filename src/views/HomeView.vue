@@ -1,21 +1,23 @@
 <template>
   <section class="home">
     <div class="photo">
+      <div class="img-layer-1"></div>
+      <div class="img-layer-2"></div>
       <img src="../assets/img/vrizas.png" alt="Vrizas Photo">
       <span class="back-text">VRIZAS</span>
     </div>
     <article>
-      <h1>Vrizas Izza Izzuddin</h1>
+      <h1>Vrizas Izza<span> Izzuddin</span></h1>
       <h2>Web Developer</h2>
       <p>Halo, saya adalah seorang Website Developer berdomisili di Malang. Saya telah menyelesaikan beberapa project web development dengan pengalaman dalam pengerjaan Web Design, Front-end Web Development, dan Back-end Web Development.</p>
-    </article>
-    <div class="action">
-      <div class="socials">
-        <a href="#"><ion-icon name="logo-github"></ion-icon></a>
-        <a href="#"><ion-icon name="logo-linkedin"></ion-icon></a>
+      <div class="action">
+        <div class="socials">
+          <a href="#"><ion-icon name="logo-github"></ion-icon></a>
+          <a href="#"><ion-icon name="logo-linkedin"></ion-icon></a>
+        </div>
+        <router-link to="/contact" class="contact-btn">HUBUNGI SAYA <ion-icon name="arrow-forward-circle"></ion-icon></router-link>
       </div>
-      <router-link to="/contact" class="contact-btn">HUBUNGI SAYA <ion-icon name="arrow-forward-circle"></ion-icon></router-link>
-    </div>
+    </article>
   </section>
 </template>
 
@@ -23,6 +25,9 @@
 export default {
   name: 'HomeView',
   components: {
+  },
+  mounted() {
+  
   }
 }
 </script>
@@ -35,7 +40,7 @@ export default {
     flex-direction: column;
     align-items: center;
     gap: 25px;
-    padding: 10px $primaryPadX 60px $primaryPadX;
+    padding: 10px 20px 60px 20px;
 
     .photo {
       width: 100%;
@@ -46,7 +51,7 @@ export default {
       img {
         position: relative;
         z-index: 1;
-        height: 30vh;
+        width: 70%;
         border-radius: 50%;
         box-shadow: inset 3px 3px 4px rgba(0, 0, 0, 0.25);
         border: 5px solid #2B2A2A;
@@ -96,6 +101,7 @@ export default {
       flex-direction: column;
       align-items: center;
       gap: 25px;
+      margin-top: 25px;
 
       .socials {
         display: flex;
@@ -125,8 +131,8 @@ export default {
         border-radius: 5px;
         min-width: 30px;
         min-height: 30px;
-        box-shadow: inset 2px 2px 3px rgba(0, 0, 0, 0.25);
-        filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.25)) drop-shadow(-1px -1px 3px rgba(255, 255, 255, 0.25));
+        // box-shadow: inset 2px 2px 3px rgba(0, 0, 0, 0.25);
+        // filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.25)) drop-shadow(-1px -1px 3px rgba(255, 255, 255, 0.25));
         
         ion-icon {
           font-size: $fs-h5;
@@ -139,6 +145,159 @@ export default {
       .back-text {
         display: none;
       }
+
+      h1 span {
+        display: none;
+      }
+    }
+  }
+
+  @media screen and (min-width: 640px) {
+    .home {
+      flex-direction: row-reverse;
+      padding: 150px 50px 60px 50px;
+
+      .photo {
+        width: 350%;
+
+        .img-layer-1 {
+          width: 70%;
+          height: 100%;
+          background-color: $primaryColor;
+          border-radius: 15px;
+          position: absolute;
+          top: 3%;
+          right: 10%;
+          z-index: 1;
+        }
+        .img-layer-2 {
+          width: 70%;
+          height: 100%;
+          background-color: $secondaryColor;
+          border-radius: 15px;
+          position: absolute;
+          top: 10%;
+          right: 5%;
+        }
+        img {
+          border-radius: 15px;
+          border-width: 0;
+        }
+
+        .back-text {
+          font-size: $fs-h1;
+        }
+      }
+
+      article {
+        text-align: left;
+
+        h1 {
+          font-size: $fs-h3;
+        }
+
+        h1 span {
+          display: none;
+        }
+
+        h2 {
+          font-size: $fs-h4;
+        }
+
+        p {
+          font-size: $fs-sm;
+        }
+
+        .action {
+          align-items: flex-start;
+          margin-top: 50px;
+          
+
+          .socials a, button {
+            min-width: 44px;
+            min-height: 44px;
+          }
+
+          .socials ion-icon {
+            font-size: $fs-h4;
+          }
+
+          .contact-btn {
+            font-size: $fs-sm;
+
+            ion-icon {
+              font-size: $fs-h4;
+            }
+          }
+
+        }
+      }
+
+    }
+  }
+
+  @media screen and (min-width: 1000px) {
+    .home {
+      padding: 50px 100px;
+      min-height: calc(100vh - (60px * 2));
+
+      .photo {
+        width: 100%; 
+
+        .back-text {
+          font-size: $fs-h2;
+          top: 20%;
+          left: -35px;
+          transform: translateY(0) rotate(-90deg);
+        }
+      }
+
+      article {
+        text-align: left;
+
+        h1 {
+          font-size: $fs-h1;
+        }
+
+        h1 span {
+          display: inline;
+        }
+
+        h2 {
+          font-size: $fs-h2;
+        }
+
+        p {
+          font-size: $fs-sm;
+          padding-right: 25%;
+          line-height: 1.3rem;
+        }
+
+        .action {
+          align-items: flex-start;
+          margin-top: 50px;
+          
+
+          .socials a, button {
+            min-width: 44px;
+            min-height: 44px;
+          }
+
+          .socials ion-icon {
+            font-size: $fs-h4;
+          }
+
+          .contact-btn {
+            font-size: $fs-sm;
+
+            ion-icon {
+              font-size: $fs-h4;
+            }
+          }
+
+        }
+      }
+
     }
   }
 </style>
