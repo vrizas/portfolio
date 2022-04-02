@@ -29,7 +29,8 @@
 <script>
 export default {
   name: 'ContactView',
-  components: {
+  mounted() {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 }
 </script>

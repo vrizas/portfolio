@@ -24,10 +24,8 @@
 <script>
 export default {
   name: 'HomeView',
-  components: {
-  },
   mounted() {
-  
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 }
 </script>
