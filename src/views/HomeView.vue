@@ -269,6 +269,8 @@ export default {
 
         p {
           font-size: $fs-sm;
+          padding-right: 25%;
+          line-height: 1.3rem;
         }
 
         .action {

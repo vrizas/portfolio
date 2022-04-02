@@ -16,33 +16,13 @@
             <ion-icon name="mail"></ion-icon>
             <span class="text">Contact</span>
         </router-link>
-        <div class="indicator" ref="indicator"></div>
+        <div class="indicator"></div>
     </nav>
 </template>
 
 <script>
-import { gsap } from "gsap";
-
 export default {
     name: 'Navbar',
-    data() {
-        return {
-            
-        }
-    },
-    computed: {
-        activeHandler() {
-            // if(this.$route.name === 'home') {
-            //     gsap.to(this.$refs.indicator, {duration: 0.2, x: `${100 * 0 / 4}%`, ease: 'power2'})
-            // } else if(this.$route.name === 'about') {
-            //     gsap.to(this.$refs.indicator, {duration: 0.2, x: `${100 * 4 / 4}%`, ease: 'power2'})
-            // } else if(this.$route.name === 'portfolio') {
-            //     gsap.to(this.$refs.indicator, {duration: 0.2, x: `${100 * 8 / 4}%`, ease: 'power2'})
-            // } else if(this.$route.name === 'contact') {
-            //     gsap.to(this.$refs.indicator, {duration: 0.2, x: `${100 * 12  / 4}%`, ease: 'power2'})
-            // }
-        }
-    },
 }
 </script>
 
