@@ -55,6 +55,7 @@ body {
   background-color: $blackColor;
   color: $whiteColor;
   font-family: $ff-poppins;
+  overflow-x: hidden;
 }
 
 p {

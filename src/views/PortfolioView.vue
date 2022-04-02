@@ -114,16 +114,15 @@ export default {
         window.onscroll = () => {
             if(this.$route.name === 'portfolio') {
                 const hero = this.$refs.hero
-                const navbar = document.querySelector('nav')
 
                 function desktopResponsive(x) {
                     if (x.matches) {
                         let bounds = hero.getBoundingClientRect()
 
                         if (bounds.top < 432 && bounds.top < window.innerHeight) {
-                            gsap.to(navbar, {duration: 0.5, x: -100, ease: 'power2'})
+                            gsap.to('nav', {duration: 0.5, x: -100, ease: 'power2'})
                         } else {
-                            gsap.to(navbar, {duration: 0.5, x: 0, ease: 'power2'})
+                            gsap.to('nav', {duration: 0.5, x: 0, ease: 'power2'})
                         }      
                     }
                 }

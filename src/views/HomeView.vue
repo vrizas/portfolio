@@ -1,12 +1,12 @@
 <template>
   <section class="home">
     <div class="photo">
-      <div class="img-layer-1"></div>
-      <div class="img-layer-2"></div>
-      <img src="../assets/img/vrizas.png" alt="Vrizas Photo">
+      <div class="img-layer-1" ref="imgLayer1"></div>
+      <div class="img-layer-2" ref="imgLayer2"></div>
+      <img src="../assets/img/vrizas.png" alt="Vrizas Photo" ref="photo">
       <span class="back-text">VRIZAS</span>
     </div>
-    <article>
+    <article ref="homeArticle">
       <h1>Vrizas Izza<span> Izzuddin</span></h1>
       <h2>Web Developer</h2>
       <p>Halo, saya adalah seorang Website Developer berdomisili di Malang. Saya telah menyelesaikan beberapa project web development dengan pengalaman dalam pengerjaan Web Design, Front-end Web Development, dan Back-end Web Development.</p>
@@ -22,10 +22,16 @@
 </template>
 
 <script>
+import { gsap } from "gsap";
+
 export default {
   name: 'HomeView',
   mounted() {
     window.scrollTo({ top: 0, behavior: 'smooth' })
+    gsap.from(this.$refs.homeArticle, {duration: 0.5, x: -200, opacity: 0, ease: 'power2'})
+    gsap.from(this.$refs.imgLayer2, {duration: 0.5, x: 200, opacity: 0, ease: 'power2'})
+    gsap.from(this.$refs.imgLayer1, {duration: 0.5, x: 200, opacity: 0, ease: 'power2'})
+    gsap.from(this.$refs.photo, {duration: 0.5, x: 200, ease: 'power2'})
   }
 }
 </script>
@@ -243,9 +249,9 @@ export default {
         width: 100%; 
 
         .back-text {
-          font-size: $fs-h2;
+          font-size: $fs-h1;
           top: 20%;
-          left: -35px;
+          left: -60px;
           transform: translateY(0) rotate(-90deg);
         }
       }
