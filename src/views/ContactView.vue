@@ -1,37 +1,48 @@
 <template>
   <section class="contact">
     <h3>Hubungi Saya</h3>
-    <p>Silahkan hubungi saya dengan memberikan informasi yang jelas dan secara mendetail, agar saya dapat mendapatkan pemahaman yang baik pada project Anda.</p>
-    <div class="contact-list">
-        <div class="item">
+    <p data-aos="fade-down">Silahkan hubungi saya dengan memberikan informasi yang jelas dan secara mendetail, agar saya dapat mendapatkan pemahaman yang baik pada project Anda.</p>
+    <div class="contact-list" data-aos="fade-down" data-aos-delay="200">
+        <div class="item"> 
             <h4><ion-icon name="mail"></ion-icon> Email</h4>
             <p>vrizasizza@gmail.com</p>
         </div>
     </div>
-    <div class="socials">
+    <div class="socials" data-aos="fade-down" data-aos-delay="400">
         <a href="#"><ion-icon name="logo-github"></ion-icon></a>
         <a href="#"><ion-icon name="logo-linkedin"></ion-icon></a>
     </div>
     <form>
-        <label for="name">Nama Anda:</label>
-        <input type="text" id="name">
-        <label for="email">Email Anda:</label>
-        <input type="text" id="email">
-        <label for="subject">Subjek Anda:</label>
-        <input type="text" id="subject">
-        <label for="message">Pesan Anda:</label>
-        <textarea id="message" cols="30" rows="10"></textarea>
-        <button class="send-btn">Kirim <ion-icon name="send"></ion-icon></button>
+        <div data-aos="zoom-in-up">
+            <label for="name">Nama Anda:</label>
+            <input type="text" id="name">
+        </div>
+        <div data-aos="zoom-in-up">
+            <label for="email">Email Anda:</label>
+            <input type="email" id="email">
+        </div>
+        <div data-aos="zoom-in-up">
+            <label for="subject">Subjek Anda:</label>
+            <input type="text" id="subject">
+        </div>
+        <div data-aos="zoom-in-up">
+            <label for="message">Pesan Anda:</label>
+            <textarea id="message"></textarea>
+        </div>
+        <button class="send-btn" data-aos="fade-up-right">Kirim <ion-icon name="send"></ion-icon></button>
     </form>
   </section>
 </template>
 
 <script>
 import { gsap } from "gsap";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 export default {
   name: 'ContactView',
   mounted() {
+    AOS.init()
     window.scrollTo({ top: 0, behavior: 'smooth' })
     gsap.to('nav', {duration: 0.5, x: 0, ease: 'power2'})
   }
@@ -102,6 +113,11 @@ export default {
             display: flex;
             flex-direction: column;
             margin-top: 70px;
+
+            div {
+                display: flex;
+                flex-direction: column;
+            }
 
             label {
                 font-family: $ff-inter;
