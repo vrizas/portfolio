@@ -3,7 +3,7 @@
     <div class="top-content">
       <section class="personal-info">
         <h3>Tentang Saya</h3>
-        <div class="item-container">
+        <div class="item-container" ref="personalInfo">
           <div class="item name">
             <h4>Nama:</h4>
             <p>Vrizas Izza Izzuddin</p>
@@ -24,7 +24,7 @@
       </section>
       <section class="my-services">
         <h3>Jasa Saya</h3>
-        <div class="item-container">
+        <div class="item-container" ref="myServices">
           <div class="item">
             <i class="fa-solid fa-laptop-code"></i>
             <h4>Web Development</h4>
@@ -37,7 +37,7 @@
     <section class="skills">
       <h3>Keahlian</h3>
       <div class="item-container">
-        <div class="item" :class="skill.name" v-for="(skill, index) in skills" :key="index">
+        <div class="item" :class="skill.name" v-for="(skill, index) in skills" :key="index" data-aos="zoom-in-down">
           <div class="bar"><span :style="{width:skill.percentage}"></span></div>
           <div class="text">
             <h4>{{ skill.name }}</h4>
@@ -49,7 +49,7 @@
     <section class="education-experience">
       <h3>Pendidikan & Pengalaman</h3>
       <div class="wrapper">
-        <section class="education">
+        <section class="education" data-aos="fade-up-right">
           <article class="item">
             <p>2019 - Sekarang</p>
             <h4>Universitas Brawijaya</h4>
@@ -62,7 +62,7 @@
         </section>
         <section class="experience">
           <div class="item-container">
-            <div class="item">
+            <div class="item" data-aos="fade-up-left" data-aos-delay="200">
               <article class="left-content">
                 <h4>Jr. Front Enginneer</h4>
                 <p>Feb 2022 - 2023</p>
@@ -74,7 +74,7 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ante purus, varius in sapien nec, faucibus elementum felis. In ipsum. </p>
               </article>
             </div>
-            <div class="item">
+            <div class="item" data-aos="fade-up-left">
               <article class="left-content">
                 <h4>Jr. Front Enginneer</h4>
                 <p>Feb 2022 - 2023</p>
@@ -90,11 +90,15 @@
         </section>
       </div>
     </section>
-    <router-link to="/" class="download-cv-btn">Unduh CV <ion-icon name="download"></ion-icon></router-link>
+    <router-link to="/" class="download-cv-btn" data-aos="fade-up-right" data-aos-offset="-10">Unduh CV <ion-icon name="download"></ion-icon></router-link>
   </section>
 </template>
 
 <script>
+import { gsap } from "gsap";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 export default {
   name: 'AboutView',
   data() {
@@ -110,6 +114,14 @@ export default {
         { name: 'Laravel', percentage: '80%' }
       ]
     }
+  },
+  mounted() {
+    AOS.init()
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+    gsap.to('nav', {duration: 0.5, x: 0, ease: 'power2'})
+
+    gsap.from(this.$refs.personalInfo, {duration: 0.5, x: -200, opacity: 0, ease: 'power2'})
+    gsap.from(this.$refs.myServices, {duration: 0.5, x: 200, opacity: 0, ease: 'power2'})
   }
 }
 </script>
