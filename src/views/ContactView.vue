@@ -13,7 +13,7 @@
         <a href="#"><ion-icon name="logo-linkedin"></ion-icon></a>
     </div>
     <form>
-        <div data-aos="zoom-in-up">
+        <div data-aos="zoom-in-up" data-aos-offset="-10">
             <label for="name">Nama Anda:</label>
             <input type="text" id="name">
         </div>
