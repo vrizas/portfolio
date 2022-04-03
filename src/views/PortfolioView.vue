@@ -133,6 +133,7 @@ export default {
     mounted() {
         AOS.init()
         window.scrollTo({ top: 0, behavior: 'smooth' })
+        gsap.to('nav', {duration: 0.5, x: 0, ease: 'power2'})
 
         window.onscroll = () => {
             if(this.$route.name === 'portfolio') {

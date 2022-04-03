@@ -118,6 +118,7 @@ export default {
   mounted() {
     AOS.init()
     window.scrollTo({ top: 0, behavior: 'smooth' })
+    gsap.to('nav', {duration: 0.5, x: 0, ease: 'power2'})
 
     gsap.from(this.$refs.personalInfo, {duration: 0.5, x: -200, opacity: 0, ease: 'power2'})
     gsap.from(this.$refs.myServices, {duration: 0.5, x: 200, opacity: 0, ease: 'power2'})
