@@ -1,30 +1,83 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <Header />
+  <main>
+    <router-view/> 
+  </main>
+  <Navbar />
 </template>
 
-<style lang="scss">
-$blue: blue;
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import Header from '@/components/Header.vue'
+import Navbar from '@/components/Navbar.vue'
 
-nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+export default {
+  name: 'App',
+  components: {
+    Header,
+    Navbar
   }
-} 
-
-nav a.router-link-exact-active {
-  color: #42b983;
 }
+</script>
+
+
+<style lang="scss">
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@300;400;500;600;700&display=swap');
+@import './assets/scss/variables';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $blackColor;
+  color: $whiteColor;
+  font-family: $ff-poppins;
+  overflow-x: hidden;
+}
+
+p {
+  font-family: $ff-inter;
+  font-size: $fs-xs;
+}
+
+a {
+  color: $whiteColor;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  color: $whiteColor;
+  font-family: $ff-poppins;
+  cursor: pointer;
+}
+
+a, button {
+  min-width: 44px;
+  min-height: 44px;
+}
+
+img {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  pointer-events: none;
+}
+
+ion-icon {
+ pointer-events: none;
+}
+
+main {
+  min-height: calc(100vh - (60px * 2));
+  margin-bottom: 60px;
+}
+
 </style>

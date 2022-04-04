@@ -7,7 +7,10 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "@emailjs/browser": "^3.5.0",
+    "aos": "^3.0.0-beta.6",
     "core-js": "^3.8.3",
+    "gsap": "^3.9.1",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3"
   },
