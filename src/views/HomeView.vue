@@ -12,8 +12,8 @@
       <p>Halo, saya adalah seorang Website Developer berdomisili di Malang. Saya telah menyelesaikan beberapa project web development dengan pengalaman dalam pengerjaan Web Design, Front-end Web Development, dan Back-end Web Development.</p>
       <div class="action">
         <div class="socials">
-          <a href="#"><ion-icon name="logo-github"></ion-icon></a>
-          <a href="#"><ion-icon name="logo-linkedin"></ion-icon></a>
+          <a href="https://github.com/vrizas" target="_blank" rel="noreferrer"><ion-icon name="logo-github"></ion-icon></a>
+          <a href="https://www.linkedin.com/in/vrizasizza/" target="_blank" rel="noreferrer"><ion-icon name="logo-linkedin"></ion-icon></a>
         </div>
         <router-link to="/contact" class="contact-btn">HUBUNGI SAYA <ion-icon name="arrow-forward-circle"></ion-icon></router-link>
       </div>
@@ -28,7 +28,6 @@ export default {
   name: 'HomeView',
   mounted() {
     window.scrollTo({ top: 0, behavior: 'smooth' })
-    gsap.to('nav', {duration: 0.5, x: 0, ease: 'power2'})
     
     gsap.from(this.$refs.homeArticle, {duration: 0.5, x: -200, opacity: 0, ease: 'power2'})
     gsap.from(this.$refs.imgLayer2, {duration: 0.5, x: 200, opacity: 0, ease: 'power2'})
@@ -47,6 +46,7 @@ export default {
     align-items: center;
     gap: 25px;
     padding: 10px 20px 60px 20px;
+    overflow: hidden;
 
     .photo {
       width: 100%;

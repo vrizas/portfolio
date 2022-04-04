@@ -25,12 +25,12 @@
       <section class="my-services">
         <h3>Jasa Saya</h3>
         <div class="item-container" ref="myServices">
-          <div class="item">
+          <button class="item" @click="this.$router.push('/portfolio#webdev')">
             <i class="fa-solid fa-laptop-code"></i>
             <h4>Web Development</h4>
-            <p>4 Project</p>
+            <p>{{portfolio.webDev.length}} Project</p>
             <ion-icon name="arrow-forward-circle"></ion-icon>
-          </div>
+          </button>
         </div>
       </section>
     </div>
@@ -101,6 +101,7 @@ import 'aos/dist/aos.css';
 
 export default {
   name: 'AboutView',
+  inject: ['portfolio'],
   data() {
     return {
       skills: [
@@ -118,7 +119,6 @@ export default {
   mounted() {
     AOS.init()
     window.scrollTo({ top: 0, behavior: 'smooth' })
-    gsap.to('nav', {duration: 0.5, x: 0, ease: 'power2'})
 
     gsap.from(this.$refs.personalInfo, {duration: 0.5, x: -200, opacity: 0, ease: 'power2'})
     gsap.from(this.$refs.myServices, {duration: 0.5, x: 200, opacity: 0, ease: 'power2'})
@@ -135,6 +135,7 @@ export default {
     flex-direction: column;
     gap: 60px;
     padding: 10px 20px 60px 20px;
+    overflow: hidden;
 
     h3 {
       width: fit-content;

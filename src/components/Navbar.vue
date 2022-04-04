@@ -8,7 +8,7 @@
             <ion-icon name="card"></ion-icon>
             <span class="text">About</span>
         </router-link>
-        <router-link to="/portfolio" :class="{active:$route.name==='portfolio'}" :onclick="activeHandler">
+        <router-link to="/portfolio" :class="{active:$route.name==='portfolio'||$route.name==='webDevPortfolio'||$route.name==='wordpressDevPortfolio'}" :onclick="activeHandler">
             <ion-icon name="briefcase"></ion-icon>
             <span class="text">Portfolio</span>
         </router-link>
@@ -36,6 +36,7 @@ export default {
         bottom: 0;
         left: 0;
         width: 100vw;
+        transform: translateY(0);
         background-color: $secondaryColor;
         
         a { 

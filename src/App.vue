@@ -76,6 +76,7 @@ button {
   border: none;
   color: $whiteColor;
   font-family: $ff-poppins;
+  cursor: pointer;
 }
 
 a, button {
