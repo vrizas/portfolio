@@ -3,12 +3,12 @@
     <div class="wrapper">
         <h3>Portofolio</h3>
         <div class="tab">
-            <button class="tablink" :class="{active:tablink.name==='Semua'}" @click="e => tabHandler(e, tablink.tabDestination)" ref="tablinksRef" v-for="(tablink, index) in tablinks" :key="index">{{ tablink.name }}</button>
+            <button class="tablink" :class="{active:tablink.tabDestination===currentTablink}" @click="e => tabHandler(e, tablink.tabDestination)" ref="tablinksRef" v-for="(tablink, index) in tablinks" :key="index">{{ tablink.name }}</button>
             <div class="active-dot"></div>
         </div>
         <div class="tabcontents" ref="tabcontents">
-            <TabContent class="web-dev" v-show="showWebDevelopment" v-for="(project, index) in portfolio.webDev" :key="index" :project="project"/>
-            <TabContent class="wordpress-dev" v-show="showWordpressDevelopment" v-for="(project, index) in portfolio.wordpressDev" :key="index" :project="project"/>
+            <TabContent class="webdev" v-show="showWebDevelopment" v-for="(project, index) in portfolio.webDev" :key="index" :project="project"/>
+            <TabContent class="webmaintenance" v-show="showWebMaintenance" v-for="(project, index) in portfolio.webMaintenance" :key="index" :project="project"/>
         </div> 
     </div>
     <div class="hero" :style="{backgroundImage: `url(${heroImgSrc})`}" ref="hero">
@@ -31,116 +31,69 @@ export default {
     components: {
         TabContent
     },
+    inject: ['portfolio'],
     data () {
         return {
-            portfolio: {
-                webDev: [
-                    { 
-                        name: 'Masyuk', 
-                        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. At, dolores quidem! Id in quaerat pariatur debitis expedita aut voluptatum maiores.',
-                        imgSrc: require('../assets/img/snow-village.jpg'),
-                        techs: ['Laravel', 'Tailwind', 'Livewire'],
-                        githubUrl: 'github.com' 
-                    },
-                    { 
-                        name: 'Masyuk', 
-                        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. At, dolores quidem! Id in quaerat pariatur debitis expedita aut voluptatum maiores.',
-                        imgSrc: require('../assets/img/snow-village.jpg'),
-                        techs: ['Laravel', 'Tailwind', 'Livewire'],
-                        githubUrl: 'github.com' 
-                    },
-                    { 
-                        name: 'Masyuk', 
-                        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. At, dolores quidem! Id in quaerat pariatur debitis expedita aut voluptatum maiores.',
-                        imgSrc: require('../assets/img/snow-village.jpg'),
-                        techs: ['Laravel', 'Tailwind', 'Livewire'],
-                        githubUrl: 'github.com' 
-                    }   
-                ],
-                wordpressDev: [
-                    { 
-                        name: 'Wordpress', 
-                        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. At, dolores quidem! Id in quaerat pariatur debitis expedita aut voluptatum maiores.',
-                        imgSrc: require('../assets/img/snow-village.jpg'),
-                        techs: ['Laravel', 'Tailwind', 'Livewire'],
-                        githubUrl: 'github.com' 
-                    },
-                    { 
-                        name: 'Wordpress', 
-                        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. At, dolores quidem! Id in quaerat pariatur debitis expedita aut voluptatum maiores.',
-                        imgSrc: require('../assets/img/snow-village.jpg'),
-                        techs: ['Laravel', 'Tailwind', 'Livewire'],
-                        githubUrl: 'github.com' 
-                    },
-                    { 
-                        name: 'Wordpress', 
-                        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. At, dolores quidem! Id in quaerat pariatur debitis expedita aut voluptatum maiores.',
-                        imgSrc: require('../assets/img/snow-village.jpg'),
-                        techs: ['Laravel', 'Tailwind', 'Livewire'],
-                        githubUrl: 'github.com' 
-                    }   
-                ]
-            },
             heroImgSrc: require('../assets/img/cool-laptop.jpg'),
             tablinks: [
-                { name: 'Semua', tabDestination: 'all' },
-                { name: 'Web Development', tabDestination: 'web-dev' },
-                { name: 'Wordpress Development', tabDestination: 'wordpress-dev' }
+                { name: 'Semua', tabDestination: '#' },
+                { name: 'Web Development', tabDestination: '#webdev' },
+                { name: 'Web Maintenance', tabDestination: '#webmaintenance' }
             ],
-            currentTablink: 'all'
+            currentTablink: '#'
         }
     },
     methods: {
         tabHandler(event, tabDestination) {
             this.currentTablink = tabDestination
-
-            this.$refs.tablinksRef.forEach(tablink => {
-                tablink.classList.remove('active')
-            });
-
-            event.target.classList.add('active')
             
-            if (tabDestination === 'all') {
+            if (tabDestination === '#') {
                 const tabcontents = document.querySelectorAll('.tabcontent')
 
                 tabcontents.forEach((tabcontent, index) => {
                     gsap.from(tabcontent, {duration: 0.5, scale: 0, opacity: 0, delay: (0.1 * index),  ease: 'power2'})
                 })
-            } else if (tabDestination === 'web-dev') {
-                const tabcontents = document.querySelectorAll('.tabcontent.web-dev')
+            } else if (tabDestination === '#webdev') {
+                const tabcontents = document.querySelectorAll('.tabcontent.webdev')
 
                 tabcontents.forEach((tabcontent, index) => {
                     gsap.from(tabcontent, {duration: 0.5, scale: 0, opacity: 0, delay: (0.1 * index),  ease: 'power2'})
                 })
-            } else if (tabDestination === 'wordpress-dev') {
-                const tabcontents = document.querySelectorAll('.tabcontent.wordpress-dev')
+            } else if (tabDestination === '#webmaintenance') {
+                const tabcontents = document.querySelectorAll('.tabcontent.webmaintenance')
 
                 tabcontents.forEach((tabcontent, index) => {
                     gsap.from(tabcontent, {duration: 0.5, scale: 0, opacity: 0, delay: (0.1 * index),  ease: 'power2'})
                 })
             }
+
+            history.replaceState(undefined, undefined, tabDestination)
         }
     },
     computed: {
         showWebDevelopment() {
-            return this.currentTablink === 'all' || this.currentTablink === 'web-dev'
+            return this.currentTablink === '#' || 
+                this.currentTablink === '#webdev'
         },
 
-        showWordpressDevelopment() {
-            return this.currentTablink === 'all' || this.currentTablink === 'wordpress-dev'
-        }
+        showWebMaintenance() {
+            return this.currentTablink === '#' || 
+                this.currentTablink === '#webmaintenance'
+        },
     },
     mounted() {
         AOS.init()
         window.scrollTo({ top: 0, behavior: 'smooth' })
-        gsap.to('nav', {duration: 0.5, x: 0, ease: 'power2'})
+
+        this.currentTablink = this.$route.hash || '#'
 
         window.onscroll = () => {
-            if(this.$route.name === 'portfolio') {
-                const hero = this.$refs.hero
+            const routeName = this.$route.name
+            const hero = this.$refs.hero
 
-                function desktopResponsive(x) {
-                    if (x.matches) {
+            function desktopResponsive(x) {
+                if (x.matches) {
+                    if(routeName === 'portfolio') {
                         let bounds = hero.getBoundingClientRect()
 
                         if (bounds.top < 432 && bounds.top < window.innerHeight) {
@@ -148,13 +101,15 @@ export default {
                         } else {
                             gsap.to('nav', {duration: 0.5, x: 0, ease: 'power2'})
                         }      
+                    } else {
+                        gsap.to('nav', {duration: 0.5, x: 0, ease: 'power2'})
                     }
                 }
-
-                var x = window.matchMedia("(min-width: 1000px)")
-                desktopResponsive(x)
-                x.addListener(desktopResponsive)
             }
+            
+            var x = window.matchMedia("(min-width: 1000px)")
+            desktopResponsive(x)
+            x.addListener(desktopResponsive)
         }
 
         const tabcontents = document.querySelectorAll('.tabcontent')
@@ -332,6 +287,10 @@ export default {
                 background-color: $secondaryColor;
                 border-radius: 50%;
             }
+        }
+
+        .tabcontents{
+            gap: 30px;
         }
 
         .hero {

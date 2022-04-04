@@ -3,10 +3,13 @@
         <article>
             <h4>{{ project.name }}</h4>
             <p>{{ project.description }}</p>
-            <div class="techs">
-                <span v-for="(tech, index) in project.techs" :key="index">{{ tech }}</span>
+            <ul class="techs">
+                <li v-for="(tech, index) in project.techs" :key="index">{{ tech }}</li>
+            </ul>
+            <div class="links">
+                <a :href="project.url.github" v-if="project.url.github" target="_blank" rel="noreferrer"><ion-icon name="logo-github"></ion-icon></a>
+                <a :href="project.url.website" v-if="project.url.website" target="_blank" rel="noreferrer"><ion-icon name="globe-outline"></ion-icon></a>
             </div>
-            <a :href="project.githubUrl" target="_blank"><ion-icon name="logo-github"></ion-icon></a>
         </article>
     </div>
 </template>
@@ -23,7 +26,9 @@ export default {
 
     .tabcontent {
         width: 100%;
+        background-repeat: no-repeat;
         background-size: cover;
+        background-position-x: center;
         border-radius: 10px;
 
         article {
@@ -44,25 +49,33 @@ export default {
                 font-weight: $fwLight;
             }
 
-            .techs {
+            ul.techs {
                 display: flex;
+                flex-wrap: wrap;
                 gap: 10px;
                 margin-top: 15px;
 
-                span {
+                li {
+                    list-style-type: none;
                     font-size: $fs-xxs;
                     color: $greyColor;
                 }
             }
 
-            a {
-                min-width: 24px;
-                min-height: 24px;
+            .links {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
                 margin-top: 25px;
 
-                ion-icon {
-                    font-size: $fs-h4;
-                }   
+                a {
+                    min-width: 24px;
+                    min-height: 24px;
+
+                    ion-icon {
+                        font-size: $fs-h4;
+                    }   
+                }
             }
         }
     }
@@ -83,8 +96,8 @@ export default {
                     font-size: $fs-sm;
                 }
 
-                .techs {
-                    span {
+                ul.techs {
+                    li {
                         font-size: $fs-xs;
                     }
                 }
@@ -100,7 +113,8 @@ export default {
 
     @media screen and (min-width: 1000px) {
         .tabcontent {
-            width: calc(32% - (20px / 3));
+            width: calc(50% - 15px);
+            height: 40vh;
 
             article {
                 border-radius: 10px;
@@ -116,8 +130,8 @@ export default {
                     font-size: $fs-sm;
                 }
 
-                .techs {
-                    span {
+                ul.techs {
+                    li {
                         font-size: $fs-xs;
                     }
                 }
