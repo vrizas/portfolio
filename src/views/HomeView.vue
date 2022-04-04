@@ -3,7 +3,7 @@
     <div class="photo">
       <div class="img-layer-1" ref="imgLayer1"></div>
       <div class="img-layer-2" ref="imgLayer2"></div>
-      <img src="../assets/img/vrizas.png" alt="Vrizas Photo" ref="photo">
+      <img draggable="false" src="../assets/img/vrizas.png" alt="Vrizas Photo" ref="photo">
       <span class="back-text">VRIZAS</span>
     </div>
     <article ref="homeArticle">

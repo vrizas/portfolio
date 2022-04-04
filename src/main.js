@@ -18,7 +18,7 @@ const portfolio = {
         },
         { 
             name: 'Yulibu', 
-            description: 'Aplikasi web yang bertujuan untuk mempermudah pengguna dalam memberikan rating dan mencari film.',
+            description: 'Membuat template HTML untuk web ecommerce yang dapat digunakan untuk membuat website ecommerce.',
             imgSrc: require('./assets/img/yulibu.jpg'),
             techs: ['HTML', 'JavaScript', 'Bootstrap'],
             url: {
@@ -27,7 +27,7 @@ const portfolio = {
         },
         { 
             name: 'Movixx', 
-            description: 'Mambuat template HTML untuk web ecommerce yang dapat digunakan untuk membuat website ecommerce.',
+            description: 'Aplikasi web yang bertujuan untuk mempermudah pengguna dalam memberikan rating dan mencari film.',
             imgSrc: require('./assets/img/movixx.jpg'),
             techs: ['Webpack', 'JavaScript', 'Bootstrap', 'Web Storage'],
             url: {

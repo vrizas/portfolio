@@ -88,11 +88,12 @@ export default {
         this.currentTablink = this.$route.hash || '#'
 
         window.onscroll = () => {
-            if(this.$route.name === 'portfolio') {
-                const hero = this.$refs.hero
+            const routeName = this.$route.name
+            const hero = this.$refs.hero
 
-                function desktopResponsive(x) {
-                    if (x.matches) {
+            function desktopResponsive(x) {
+                if (x.matches) {
+                    if(routeName === 'portfolio') {
                         let bounds = hero.getBoundingClientRect()
 
                         if (bounds.top < 432 && bounds.top < window.innerHeight) {
@@ -100,13 +101,15 @@ export default {
                         } else {
                             gsap.to('nav', {duration: 0.5, x: 0, ease: 'power2'})
                         }      
+                    } else {
+                        gsap.to('nav', {duration: 0.5, x: 0, ease: 'power2'})
                     }
                 }
-
-                var x = window.matchMedia("(min-width: 1000px)")
-                desktopResponsive(x)
-                x.addListener(desktopResponsive)
             }
+            
+            var x = window.matchMedia("(min-width: 1000px)")
+            desktopResponsive(x)
+            x.addListener(desktopResponsive)
         }
 
         const tabcontents = document.querySelectorAll('.tabcontent')
