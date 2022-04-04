@@ -12,38 +12,90 @@
         <a href="https://github.com/vrizas" target="_blank" rel="noreferrer"><ion-icon name="logo-github"></ion-icon></a>
         <a href="https://www.linkedin.com/in/vrizasizza/" target="_blank" rel="noreferrer"><ion-icon name="logo-linkedin"></ion-icon></a>
     </div>
-    <form>
+    <form ref="form" @submit.prevent="sendEmail">
         <div data-aos="zoom-in-up" data-aos-offset="-10">
-            <label for="name">Nama Anda:</label>
-            <input type="text" id="name">
+            <label for="from_name">Nama Anda:</label>
+            <input type="text" name="from_name" id="from_name" ref="from_name">
         </div>
         <div data-aos="zoom-in-up">
-            <label for="email">Email Anda:</label>
-            <input type="email" id="email">
+            <label for="from_email">Email Anda:</label>
+            <input type="email" name="from_email" id="from_email" ref="from_email">
         </div>
         <div data-aos="zoom-in-up">
             <label for="subject">Subjek Anda:</label>
-            <input type="text" id="subject">
+            <input type="text" name="subject" id="subject" ref="subject">
         </div>
         <div data-aos="zoom-in-up">
             <label for="message">Pesan Anda:</label>
-            <textarea id="message"></textarea>
+            <textarea name="message" id="message" ref="message" rows="5" cols="50"></textarea>
         </div>
-        <button class="send-btn" data-aos="fade-up-right">Kirim <ion-icon name="send"></ion-icon></button>
+        <div class="action">
+            <button class="send-btn" data-aos="fade-up-right">Kirim <ion-icon name="send"></ion-icon></button>
+            <span class="flash-message" ref="flashMessage" v-show="flashMessage">{{ flashMessageText }}</span>
+        </div>
     </form>
   </section>
 </template>
 
 <script>
+import emailjs from '@emailjs/browser';
 import { gsap } from "gsap";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 export default {
   name: 'ContactView',
+  data() {
+    return {
+      flashMessage: false,
+      flashMessageText: '',
+    }
+  },
   mounted() {
     AOS.init()
     window.scrollTo({ top: 0, behavior: 'smooth' })
+  },
+  methods: {
+    sendEmail() {
+      emailjs.sendForm('service_1qcv1f9', 'template_h9r7oxp', this.$refs.form, '17U8-VxV5XX-GAP37')
+        .then((result) => {
+            this.flashMessage = true
+            this.flashMessageText = 'Pesan terkirim'
+
+            gsap.from(this.$refs.flashMessage, {duration: 0.5, x: 200, opacity: 0, ease: 'back.inOut(3)'})
+            
+            setTimeout(() => {
+                gsap.to(this.$refs.flashMessage, {duration: 0.5, x: 200, opacity: 0, ease: 'back.inOut(3)'})
+                setTimeout(() => {
+                    this.flashMessage = false
+                    this.flashMessage = false
+                }, 500)
+            }, 5000)
+
+            this.$refs.from_name.value = ''
+            this.$refs.from_email.value = ''
+            this.$refs.subject.value = ''
+            this.$refs.message.value = ''
+        }, (error) => {
+            this.flashMessage = true
+            this.flashMessageText = `Gagal. ${error.text}`
+
+            gsap.from(this.$refs.flashMessage, {duration: 0.5, x: 200, opacity: 0, ease: 'back.inOut(3)'})
+            
+            setTimeout(() => {
+                gsap.to(this.$refs.flashMessage, {duration: 0.5, x: 200, opacity: 0, ease: 'back.inOut(3)'})
+                setTimeout(() => {
+                    this.flashMessage = false
+                    this.flashMessage = false
+                }, 500)
+            }, 5000)
+
+            this.$refs.from_name.value = ''
+            this.$refs.from_email.value = ''
+            this.$refs.subject.value = ''
+            this.$refs.message.value = ''
+        });
+    }
   }
 }
 </script>
@@ -135,10 +187,29 @@ export default {
                 margin-bottom: 15px;
             }
 
+            textarea {
+                resize: vertical;
+            }
+
+            .action {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 20px;
+                margin-top: 15px;
+            }
+
+            .flash-message {
+                width: fit-content;
+                background-color: $successColor;
+                font-size: $fs-xs;
+                padding: 10px 15px;
+                border-radius: 5px;
+            }
+
             .send-btn {
                 display: flex;
                 align-items: center;
-                margin-top: 15px;
                 font-family: $ff-inter;
                 font-weight: $fwSemiBold;
                 font-size: $fs-xs;
@@ -201,13 +272,13 @@ export default {
 
             form {
                 margin-top: 70px;
-
-                label {
+                
+                label, input, textarea{
                     font-size: $fs-sm;
                 }
-                
-                input, textarea {
-                    font-size: $fs-sm;
+
+                .flash-message {
+                    padding: 11.5px 15px;
                 }
 
                 .send-btn {
