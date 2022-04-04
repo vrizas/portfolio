@@ -31,6 +31,12 @@
             <p>{{portfolio.webDev.length}} Project</p>
             <ion-icon name="arrow-forward-circle"></ion-icon>
           </button>
+          <button class="item" @click="this.$router.push('/portfolio#webmaintenance')">
+            <i class="fa-solid fa-screwdriver-wrench"></i>
+            <h4>Web Maintenance</h4>
+            <p>{{portfolio.webMaintenance.length}} Project</p>
+            <ion-icon name="arrow-forward-circle"></ion-icon>
+          </button>
         </div>
       </section>
     </div>
@@ -64,33 +70,33 @@
           <div class="item-container">
             <div class="item" data-aos="fade-up-left" data-aos-delay="200">
               <article class="left-content">
-                <h4>Jr. Front Enginneer</h4>
-                <p>Feb 2022 - 2023</p>
-                <span>Intern</span>
+                <h4>Peserta Jalur Belajar Front-End dan Back-End Web Developer</h4>
+                <p>Feb 2022 - Sekarang</p>
+                <span>Siswa</span>
               </article>
               <div class="divider"></div>
               <article class="right-content">
-                <h5>GoJek</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ante purus, varius in sapien nec, faucibus elementum felis. In ipsum. </p>
+                <h5>Dicoding Indonesia</h5>
+                <p>Saya menjadi peserta jalur belajar Front-End dan Back-End Web Developer di SIB Dicoding Indonesia Batch 2</p>
               </article>
             </div>
             <div class="item" data-aos="fade-up-left">
               <article class="left-content">
-                <h4>Jr. Front Enginneer</h4>
-                <p>Feb 2022 - 2023</p>
-                <span>Intern</span>
+                <h4>Peserta Jalur Belajar Front-End Web Developer</h4>
+                <p>Mei 2021 - Jan 2022</p>
+                <span>Siswa</span>
               </article>
               <div class="divider"></div>
               <article class="right-content">
-                <h5>GoJek</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ante purus, varius in sapien nec, faucibus elementum felis. In ipsum. </p>
+                <h5>ID Camp</h5>
+                <p>Saya menjadi penerima beasiswa jalur belajar Front-End Web Developer di ID Camp 2021</p>
               </article>
             </div>
           </div>
         </section>
       </div>
     </section>
-    <router-link to="/" class="download-cv-btn" data-aos="fade-up-right" data-aos-offset="-10">Unduh CV <ion-icon name="download"></ion-icon></router-link>
+    <!-- <a href="" class="download-cv-btn" data-aos="fade-up-right" data-aos-offset="-10">Unduh CV <ion-icon name="download"></ion-icon></a> -->
   </section>
 </template>
 
@@ -111,8 +117,9 @@ export default {
         { name: 'PHP', percentage: '75%' },
         { name: 'Bootstrap', percentage: '80%' },
         { name: 'Tailwind', percentage: '85%' },
-        { name: 'VueJS', percentage: '50%' },
-        { name: 'Laravel', percentage: '80%' }
+        { name: 'VueJS', percentage: '70%' },
+        { name: 'Laravel', percentage: '80%' },
+        { name: 'Git/Github', percentage: '90%' }
       ]
     }
   },
@@ -297,6 +304,7 @@ export default {
 
               p {
                 font-size: $fs-xs;
+                line-height: 1.2rem;
               }
 
               span {
@@ -541,8 +549,16 @@ export default {
               .item {
                 border-radius: 10px;
                 padding: 25px 30px;
-                h4, h5, p, span {
+                h4, h5 {
                   font-size: $fs-sm;
+                }
+
+                h5 {
+                  margin-bottom: 5px;
+                }
+                
+                p, span {
+                  font-size: $fs-xs;
                 }
               }
             }

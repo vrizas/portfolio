@@ -7,30 +7,22 @@ const app = createApp(App)
 const portfolio = {
     webDev: [
         { 
-            name: 'Butuh Surat', 
-            description: 'Aplikasi web untuk memfasilitasi aparat RT dan RW di Kelurahan Lowokwaru Kota Malang dalam pembuatan surat untuk keperluan pengurusan warga disana.',
-            imgSrc: require('./assets/img/butuh-surat.jpg'),
-            techs: ['Laravel', 'JavaScript', 'Livewire'],
+            name: 'REST', 
+            description: 'Aplikasi web yang bertujuan untuk memungkinkan pelanggan mencari restoran dan memberikan ulasan mereka.',
+            imgSrc: require('./assets/img/rest.jpg'),
+            techs: ['Webpack', 'JavaScript', 'Firebase', 'Service Worker'],
             url: {
-                github: 'https://github.com/vrizas/surat-menyurat' 
+                github: 'https://github.com/vrizas/restaurant-apps',
+                website: 'https://rest-9a575.web.app/' 
             }
         },
         { 
-            name: 'Njawi', 
-            description: 'Aplikasi mobile yang bertujuan untuk mempermudah anak-anak dalam mempelajari bahasa Jawa.',
-            imgSrc: require('./assets/img/njawi.jpg'),
-            techs: ['Android', 'Kotlin', 'Firebase'],
+            name: 'Yulibu', 
+            description: 'Aplikasi web yang bertujuan untuk mempermudah pengguna dalam memberikan rating dan mencari film.',
+            imgSrc: require('./assets/img/yulibu.jpg'),
+            techs: ['HTML', 'JavaScript', 'Bootstrap'],
             url: {
-                github: 'https://github.com/ekotyoo/njawi' 
-            }
-        },
-        { 
-            name: 'Masyuk', 
-            description: 'Aplikasi web yang ditujukan untuk mahasiswa agar dapat lebih mudah dalam mencari resep makanan yang dibutuhkan.',
-            imgSrc: require('./assets/img/masyuk.jpg'),
-            techs: ['Laravel', 'JavaScript', 'Livewire'],
-            url: {
-                github: 'https://github.com/vrizas/masyuk' 
+                website: 'https://project.rumahcyber.com' 
             }
         },
         { 
@@ -44,24 +36,32 @@ const portfolio = {
             }
         },
         { 
-            name: 'Yulibu', 
-            description: 'Aplikasi web yang bertujuan untuk mempermudah pengguna dalam memberikan rating dan mencari film.',
-            imgSrc: require('./assets/img/yulibu.jpg'),
-            techs: ['HTML', 'JavaScript', 'Bootstrap'],
+            name: 'Masyuk', 
+            description: 'Aplikasi web yang ditujukan untuk mahasiswa agar dapat lebih mudah dalam mencari resep makanan yang dibutuhkan.',
+            imgSrc: require('./assets/img/masyuk.jpg'),
+            techs: ['Laravel', 'JavaScript', 'Livewire'],
             url: {
-                website: 'https://project.rumahcyber.com' 
+                github: 'https://github.com/vrizas/masyuk' 
             }
         },
         { 
-            name: 'REST', 
-            description: 'Aplikasi web yang bertujuan untuk memungkinkan pelanggan mencari restoran dan memberikan ulasan mereka.',
-            imgSrc: require('./assets/img/rest.jpg'),
-            techs: ['Webpack', 'JavaScript', 'Firebase', 'Service Worker'],
+            name: 'Njawi', 
+            description: 'Aplikasi mobile yang bertujuan untuk mempermudah anak-anak dalam mempelajari bahasa Jawa.',
+            imgSrc: require('./assets/img/njawi.jpg'),
+            techs: ['Android', 'Kotlin', 'Firebase'],
             url: {
-                github: 'https://github.com/vrizas/restaurant-apps',
-                website: 'https://rest-9a575.web.app/' 
+                github: 'https://github.com/ekotyoo/njawi' 
             }
         },
+        { 
+            name: 'Butuh Surat', 
+            description: 'Aplikasi web untuk memfasilitasi aparat RT dan RW di Kelurahan Lowokwaru Kota Malang dalam pembuatan surat untuk keperluan pengurusan warga disana.',
+            imgSrc: require('./assets/img/butuh-surat.jpg'),
+            techs: ['Laravel', 'JavaScript', 'Livewire'],
+            url: {
+                github: 'https://github.com/vrizas/surat-menyurat' 
+            }
+        }  
     ],
     webMaintenance: [
         { 
