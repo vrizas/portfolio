@@ -1,7 +1,7 @@
 <template>
   <section class="contact">
     <h3>Hubungi Saya</h3>
-    <p data-aos="fade-down">Silahkan hubungi saya dengan memberikan informasi yang jelas dan secara mendetail, agar saya dapat mendapatkan pemahaman yang baik pada project Anda.</p>
+    <p data-aos="fade-down">Silahkan hubungi saya dengan memberikan informasi yang jelas dan secara mendetail, agar saya dapat mendapatkan pemahaman yang baik pada project atau kebutuhan Anda.</p>
     <div class="contact-list" data-aos="fade-down" data-aos-delay="200">
         <div class="item"> 
             <h4><ion-icon name="mail"></ion-icon> Email</h4>
@@ -9,8 +9,8 @@
         </div>
     </div>
     <div class="socials" data-aos="fade-down" data-aos-delay="400">
-        <a href="#"><ion-icon name="logo-github"></ion-icon></a>
-        <a href="#"><ion-icon name="logo-linkedin"></ion-icon></a>
+        <a href="https://github.com/vrizas" target="_blank" rel="noreferrer"><ion-icon name="logo-github"></ion-icon></a>
+        <a href="https://www.linkedin.com/in/vrizasizza/" target="_blank" rel="noreferrer"><ion-icon name="logo-linkedin"></ion-icon></a>
     </div>
     <form>
         <div data-aos="zoom-in-up" data-aos-offset="-10">
