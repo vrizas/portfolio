@@ -1,4 +1,4 @@
-// dev init
+// deve v2.0 init
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
