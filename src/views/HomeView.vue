@@ -3,8 +3,10 @@
     <div class="photo">
       <div class="img-layer-1" ref="imgLayer1"></div>
       <div class="img-layer-2" ref="imgLayer2"></div>
-      <img draggable="false" src="../assets/img/vrizas.jpg" alt="Vrizas Izza Izzuddin" ref="photo">
-      <span class="back-text">VRIZAS</span>
+      <div class="img-container">
+        <img draggable="false" class="skeleton lazyload" src="../assets/img/vrizas.jpg" alt="Vrizas Izza Izzuddin" ref="photo">
+        <span class="back-text">VRIZAS</span>
+      </div>
     </div>
     <article ref="homeArticle">
       <h1>Vrizas Izza<span> Izzuddin</span></h1>
@@ -37,12 +39,12 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   @import '../assets/scss/variables';
 
   .home {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
     align-items: center;
     gap: 25px;
     padding: 10px 20px 60px 20px;
@@ -50,14 +52,16 @@ export default {
 
     .photo {
       width: 100%;
-      text-align: center;
+      display: flex;
+      justify-content: center;
       position: relative;
       margin-top: 20px;
 
       img {
         position: relative;
         z-index: 1;
-        width: 70%;
+        width: 60vw;
+        height: 60vw;
         border-radius: 50%;
         box-shadow: inset 3px 3px 4px rgba(0, 0, 0, 0.25);
         border: 5px solid #2B2A2A;
@@ -160,22 +164,25 @@ export default {
 
   @media screen and (min-width: 640px) {
     .home {
-      flex-direction: row-reverse;
+      grid-template-columns: repeat(2, 1fr);
       padding: 150px 50px 60px 50px;
 
       .photo {
-        width: 350%;
-
+        justify-content: flex-end;
+        grid-column-start: 2;
+        grid-row-start: 1;
+    
         .img-layer-1 {
           width: 70%;
           height: 100%;
           background-color: $primaryColor;
           border-radius: 15px;
           position: absolute;
-          top: 3%;
-          right: 10%;
+          top: 4%;
+          right: -3.5%;
           z-index: 1;
         }
+
         .img-layer-2 {
           width: 70%;
           height: 100%;
@@ -183,19 +190,31 @@ export default {
           border-radius: 15px;
           position: absolute;
           top: 10%;
-          right: 5%;
+          right: -7%;
         }
+
+        .img-container {
+          width: fit-content;
+          position: relative;
+        }
+
         img {
+          width: 30vw;
+          height: 30vw;
           border-radius: 15px;
           border-width: 0;
         }
 
         .back-text {
           font-size: $fs-h1;
+          left: -18vw;
+          transform: translate(0, -50%) rotate(-90deg);
         }
       }
 
       article {
+        grid-row-start: 1;
+        grid-column-start: 1;
         text-align: left;
 
         h1 {
@@ -244,29 +263,24 @@ export default {
 
   @media screen and (min-width: 1000px) {
     .home {
-      padding: 50px 100px;
       min-height: calc(100vh - (60px * 2));
-
+      padding: 50px 100px;
+      
       .photo {
-        width: 100%; 
-
         .back-text {
-          font-size: $fs-h1;
-          top: 20%;
-          left: -60px;
-          transform: translateY(0) rotate(-90deg);
+          font-size: 3.5vw;
+          top: 25%;
+          left: -10vw;
+          transform: translate(0, -50%) rotate(-90deg);
         }
       }
 
       article {
+        width: 100%;
         text-align: left;
 
         h1 {
           font-size: $fs-h1;
-        }
-
-        h1 span {
-          display: inline;
         }
 
         h2 {
@@ -304,6 +318,55 @@ export default {
         }
       }
 
+    }
+  }
+
+  @media screen and (min-width: 1338px) {
+    .home article h1 span {
+      display: inline;
+    }
+  }
+
+  @media screen and (min-width: 1920px) {
+    .home  {
+      padding: 50px 150px;
+      
+      article {
+        h1 {
+          font-size: 2.5vw;
+        }
+
+        h2 {
+          font-size: 2vw;
+        }
+
+        p {
+          font-size: 1vw;
+          line-height: 1.2vw;
+        }
+        
+        .action {
+          .socials {
+            a {
+              min-width: 2.5vw;
+              min-height: 2.5vw;
+            }
+            ion-icon {
+              font-size: 1.5vw;
+            }
+          }
+
+          .contact-btn {
+            padding: .6vw .8vw;
+            font-size: 1vw;
+
+            ion-icon {
+              font-size: 1.5vw;
+            }
+          }
+
+        }
+      }
     }
   }
 </style>

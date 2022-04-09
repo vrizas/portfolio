@@ -10,7 +10,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     @import '../assets/scss/variables';
 
     header {
@@ -35,4 +35,15 @@ export default {
             padding: 20px 35px;
         }
     }
+
+    // @media screen and (min-width: 1440px) {
+    //     header  {
+    //         a {
+    //             img {
+    //                 width: 1.8vw;
+    //             }
+                
+    //         }
+    //     }
+    // }
 </style>

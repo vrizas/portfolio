@@ -100,7 +100,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     @import '../assets/scss/variables';
 
     .contact {
@@ -338,5 +338,67 @@ export default {
             }
         }
         
+    }
+
+    @media screen and (min-width: 1920px) {
+        .contact  {
+            padding: 50px 150px;
+
+            h3 {
+                font-size: 1.3vw;
+
+                &::after {
+                    width: 100px;
+                    height: 100px;
+                }
+            }
+
+            p {
+                padding: 0 25%;
+                font-size: 1vw;
+            }
+
+            .contact-list {
+                h4 {
+                    font-size: 1.2vw;
+
+                    ion-icon {
+                        font-size: 1.5vw; 
+                    }
+                }
+            }
+
+            .socials {
+                a {
+                    min-width: 2.5vw;
+                    min-height: 2.5vw;
+                    ion-icon {
+                        font-size: 1.5vw;
+                    }
+                }
+            }
+
+            form {
+                margin-top: 70px;
+                
+                label, input, textarea{
+                    font-size: 1vw;
+                }
+
+                .flash-message {
+                    font-size: 1vw;
+                }
+
+                .send-btn {
+                    padding: .6vw .8vw;
+                    font-size: 1vw;
+
+                    ion-icon {
+                    font-size: 1.5vw;
+                    }
+                }
+
+            }
+        }
     }
 </style>
