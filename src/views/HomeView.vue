@@ -4,7 +4,7 @@
       <div class="img-layer-1" ref="imgLayer1"></div>
       <div class="img-layer-2" ref="imgLayer2"></div>
       <div class="img-container">
-        <img draggable="false" class="skeleton" src="../assets/img/vrizas.jpg" alt="Vrizas Izza Izzuddin" ref="photo">
+        <img draggable="false" class="skeleton lazyload" src="../assets/img/vrizas.jpg" alt="Vrizas Izza Izzuddin" ref="photo">
         <span class="back-text">VRIZAS</span>
       </div>
     </div>

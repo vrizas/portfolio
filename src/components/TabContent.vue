@@ -1,5 +1,5 @@
 <template>
-    <div class="tabcontent skeleton" :style="{backgroundImage: `url(${project.imgSrc})`}">
+    <div class="tabcontent skeleton lazyload" :style="{backgroundImage: `url(${project.imgSrc})`}">
         <article>
             <h4>{{ project.name }}</h4>
             <p>{{ project.description }}</p>
