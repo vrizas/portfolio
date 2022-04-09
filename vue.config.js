@@ -15,5 +15,12 @@ module.exports = defineConfig({
         }
         return options
       })
+  },
+  pwa: {
+    name: 'Vrizas Izza Izzuddin',
+    themeColor: '#f5df4e',
+    msTileColor: '#191919',
+    appleMobileWebAppCapable: 'yes',
+    appleMobileWebAppStatusBarStyle: 'black'
   }
 })
