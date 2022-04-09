@@ -14,7 +14,7 @@ cd dist
 
 git init
 git add .
-git commit -m 'deploy v1.0'
+git commit -m 'deploy v2.0'
 git remote add origin https://github.com/vrizas/vrizas.github.io.git
 git branch -m main
 git push -f origin main
