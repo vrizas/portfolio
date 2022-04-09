@@ -4,6 +4,7 @@ import App from './App.vue'
 import router from './router'
 import 'lazysizes'
 import 'lazysizes/plugins/parent-fit/ls.parent-fit'
+import './registerServiceWorker'
 
 const app = createApp(App)
 const portfolio = {
