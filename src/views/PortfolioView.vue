@@ -104,6 +104,8 @@ export default {
                     } else {
                         gsap.to('nav', {duration: 0.5, x: 0, ease: 'power2'})
                     }
+                } else {
+                    gsap.to('nav', {duration: 0.5, x: 0, y: 0, ease: 'power2'})
                 }
             }
             
@@ -121,7 +123,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     @import '../assets/scss/variables';
 
     .portfolio {
@@ -241,87 +243,137 @@ export default {
     }
 
     @media screen and (min-width: 640px) {
-    .portfolio {
-        .wrapper {
-            padding: 10px 50px 60px 50px;
-        }
-
-        h3 {
-            font-size: $fs-base;
-        }
-
-        .tab {
-            button {
-                font-size: $fs-sm;
+        .portfolio {
+            .wrapper {
+                padding: 10px 50px 60px 50px;
             }
-        }
 
-        .tabcontents {
-            flex-direction: row;
-            flex-wrap: wrap;
-        }
-    }
-  }
-
-  @media screen and (min-width: 1000px) {
-    .portfolio {
-        .wrapper {
-            padding: 50px 100px;
-        }  
-
-        h3 {
-            border-width: 0;
-            position: relative;
-            font-size: $fs-h5;
-            margin-bottom: 60px;
-
-            &::after {
-                content: '';
-                position: absolute;
-                bottom: 50%;
-                left: 50%;
-                transform: translate(-50%, 50%);
-                z-index: -1;
-                width: 70px;
-                height: 70px;
-                background-color: $secondaryColor;
-                border-radius: 50%;
+            h3 {
+                font-size: $fs-base;
             }
-        }
 
-        .tabcontents{
-            gap: 30px;
-        }
-
-        .hero {
-            width: 100%;
-            height: 100vh;
-            background-size: cover;
-            margin-top: 40px;
-
-            article {
-                gap: 15px;
-                padding: 10px 40px;
-
-                strong {
-                    font-size: $fs-h3;
-                }
-
-                .contact-btn {
+            .tab {
+                button {
                     font-size: $fs-sm;
-                    padding: 10px 15px;
-                    border-radius: 5px;
-                    min-width: 44px;
-                    min-height: 44px;
-                    
-                    ion-icon {
-                        font-size: $fs-h4;
+                }
+            }
+
+            .tabcontents {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+        }
+    }
+
+    @media screen and (min-width: 1000px) {
+        .portfolio {
+            .wrapper {
+                padding: 50px 100px;
+            }  
+
+            h3 {
+                border-width: 0;
+                position: relative;
+                font-size: $fs-h5;
+                margin-bottom: 60px;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    bottom: 50%;
+                    left: 50%;
+                    transform: translate(-50%, 50%);
+                    z-index: -1;
+                    width: 70px;
+                    height: 70px;
+                    background-color: $secondaryColor;
+                    border-radius: 50%;
+                }
+            }
+
+            .tabcontents{
+                gap: 30px;
+            }
+
+            .hero {
+                width: 100%;
+                height: 100vh;
+                background-size: cover;
+                margin-top: 40px;
+
+                article {
+                    gap: 15px;
+                    padding: 10px 40px;
+
+                    strong {
+                        font-size: $fs-h3;
                     }
+
+                    .contact-btn {
+                        font-size: $fs-sm;
+                        padding: 10px 15px;
+                        border-radius: 5px;
+                        min-width: 44px;
+                        min-height: 44px;
+                        
+                        ion-icon {
+                            font-size: $fs-h4;
+                        }
+                    }
+
                 }
 
             }
-
         }
     }
-  }
+
+    @media screen and (min-width: 1920px) {
+        .portfolio  {
+            .wrapper {
+                padding: 50px 150px;
+            }
+
+            h3 {
+                font-size: 1.3vw;
+
+                &::after {
+                    width: 100px;
+                    height: 100px;
+                }
+            }
+            
+            .tab {
+                button {
+                    font-size: 1.2vw;
+                }
+            }
+
+            .hero {
+                width: 100%;
+                height: 100vh;
+                background-size: cover;
+                margin-top: 40px;
+
+                article {
+                    gap: 15px;
+                    padding: 10px 40px;
+
+                    strong {
+                        font-size: 2vw;
+                    }
+
+                    .contact-btn {
+                        padding: .6vw .8vw;
+                        font-size: 1vw;
+
+                        ion-icon {
+                        font-size: 1.5vw;
+                        }
+                    }
+
+                }
+
+            }
+        }
+    }
 </style>

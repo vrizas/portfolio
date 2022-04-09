@@ -26,7 +26,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     @import '../assets/scss/variables';
 
     nav {
@@ -173,6 +173,101 @@ export default {
 
             a:nth-child(4).active ~ .indicator {
                 transform: translateY(calc(80px * 3));
+            }
+        }
+
+    }
+
+    @media screen and (min-width: 1920px) {
+        nav {
+            height: 450px;
+            padding: 25px 0;
+            flex-direction: column;
+            bottom: 50%;
+            transform: translateY(50%);
+            border-radius: 0 10px 10px 0;
+            
+            a { 
+                width: 80px;
+                height: 100px;
+                position: relative;
+
+                ion-icon {
+                    position: relative;
+                    transition: .5s;
+                    font-size: 30px;
+                }
+
+                &.active ion-icon {
+                    position: relative;
+                    z-index: 1;
+                    transform: translateX(41px);
+                    color: $blackColor;
+                }
+
+                .text {
+                    display: inherit;
+                    font-size: $fs-xs;
+                    position: absolute;
+                    transition: .5s;
+                    opacity: 0;
+                }
+
+                &.active .text {
+                    opacity: 1;
+                    transform: translateY(50px);
+                }
+            }
+
+            .indicator  {
+                width: 80px;
+                height: 80px;
+                background-color: $primaryColor;
+                top: 35px;
+                bottom: initial;
+                left: 50%;
+                border-radius: 50%;
+                border: 6px solid $blackColor;
+                transition: .5s;
+            }
+
+            .indicator::before {
+                content: '';
+                position: absolute;
+                top: -18px;
+                right: 50%;
+                width: 15px;
+                height: 15px;
+                background-color: transparent;
+                border-bottom-right-radius: 15px;
+                box-shadow: 5px 1.5px 0 0 $blackColor;
+            }
+            .indicator::after {
+                content: '';
+                position: absolute;
+                bottom: -18px;
+                right: 50%;
+                width: 15px;
+                height: 15px;
+                background-color: transparent;
+                border-top-right-radius: 15px;
+                box-shadow: 5px -1.5px 0 $blackColor;
+            }
+
+            a:nth-child(1).active ~ .indicator {
+                transform: translateY(calc(100px * 0));
+            }
+
+            a:nth-child(2).active ~ .indicator {
+                transform: translateY(calc(100px * 1));
+            }
+
+            a:nth-child(3).active ~ .indicator {
+                transform: translateY(calc(100px * 2));
+            }
+
+            a:nth-child(4).active ~ .indicator {
+                transform: translateY(calc(100px * 3));
             }
         }
 

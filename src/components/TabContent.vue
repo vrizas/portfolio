@@ -21,7 +21,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     @import '../assets/scss/variables';
 
     .tabcontent {
@@ -147,6 +147,34 @@ export default {
                 opacity: 1;
             }
 
+        }
+    }
+
+    @media screen and (min-width: 1920px) {
+        .tabcontent {
+            article {
+                padding: 35px 40px;
+
+                h4 {
+                    font-size: 1.5vw;
+                }
+
+                p {
+                    font-size: 1vw;
+                }
+
+                ul.techs {
+                    li {
+                        font-size: .8vw;
+                    }
+                }
+
+                a {
+                    ion-icon {
+                        font-size: 2vw;
+                    }   
+                }
+            }
         }
     }
 </style>
