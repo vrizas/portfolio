@@ -218,8 +218,8 @@ export default {
 
     .skills {
       .item-container {
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
         gap: 20px;
         
         .item {
@@ -509,16 +509,9 @@ export default {
       }
       
       .skills {
-        height: 70vh;
-
         .item-container {
-          height: calc(100% - 160px);
-          flex-wrap: wrap;
+          grid-template-columns: repeat(2, 1fr);
           gap: 30px;
-
-          .item {
-            width: calc(50% - 15px);
-          }
         }
       }
 
@@ -574,6 +567,107 @@ export default {
         }
       }
 
+    }
+  }
+
+  @media screen and (min-width: 1920px) {
+    .about  {
+      padding: 50px 150px;
+      
+      h3 {
+        font-size: 1.3vw;
+
+        &::after {
+          width: 100px;
+          height: 100px;
+        }
+      }
+
+      .top-content {
+        .personal-info {
+          .item-container {
+            .item {
+              h4 {
+                font-size: 1vw;
+              }
+
+              p {
+                font-size: 1vw;
+              }
+            }
+          }
+        }
+
+        .my-services {
+          .item-container {
+            .item {
+              h4 {
+                font-size: 1vw;
+              }
+
+              p {
+                font-size: 0.8vw;
+              }
+
+              i {
+                font-size: 3vw;
+              }
+            }
+          }
+        }
+
+      }
+      
+      .skills {
+        .item-container {
+          grid-template-columns: repeat(3, 1fr);
+
+          .item {
+            .bar {
+              height: .5vw;
+            }
+
+            .text {
+              h4, p {
+                font-size: 1vw;
+              }
+            }
+          }
+        }
+      }
+
+      .education-experience {
+        .wrapper { 
+          .education {
+            p, h4 {
+              font-size: 1vw;
+            }
+          }
+
+          .experience {
+            .item-container {  
+              .item {
+                h4, h5 {
+                  font-size: 1vw;
+                }
+                
+                p, span {
+                  font-size: .8vw;
+                  line-height: 1.1vw;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .download-cv-btn {
+        font-size: 1vw;
+
+        ion-icon {
+          font-size: 2vw;
+        }
+      }
     }
   }
 </style>
