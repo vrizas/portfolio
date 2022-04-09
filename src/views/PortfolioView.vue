@@ -11,7 +11,7 @@
             <TabContent class="webmaintenance" v-show="showWebMaintenance" v-for="(project, index) in portfolio.webMaintenance" :key="index" :project="project"/>
         </div> 
     </div>
-    <div class="hero" :style="{backgroundImage: `url(${heroImgSrc})`}" ref="hero">
+    <div class="hero skeleton" :style="{backgroundImage: `url(${heroImgSrc})`}" ref="hero">
         <article>
             <strong data-aos="fade-up">Tertarik untuk bekerja sama?</strong>
             <router-link to="/contact" class="contact-btn" data-aos="fade-up" data-aos-delay="200">HUBUNGI SAYA <ion-icon name="arrow-forward-circle"></ion-icon></router-link>
@@ -197,7 +197,7 @@ export default {
         }
 
         .hero {
-            width: 100%;
+            width: 100vw;
             height: 40vh;
             background-size: cover;
             margin-top: 40px;
