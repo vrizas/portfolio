@@ -10,7 +10,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     @import '../assets/scss/variables';
 
     header {
@@ -36,14 +36,14 @@ export default {
         }
     }
 
-    @media screen and (min-width: 1440px) {
-        header  {
-            a {
-                img {
-                    width: 1.8vw;
-                }
+    // @media screen and (min-width: 1440px) {
+    //     header  {
+    //         a {
+    //             img {
+    //                 width: 1.8vw;
+    //             }
                 
-            }
-        }
-    }
+    //         }
+    //     }
+    // }
 </style>

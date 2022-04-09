@@ -104,6 +104,8 @@ export default {
                     } else {
                         gsap.to('nav', {duration: 0.5, x: 0, ease: 'power2'})
                     }
+                } else {
+                    gsap.to('nav', {duration: 0.5, x: 0, y: 0, ease: 'power2'})
                 }
             }
             
@@ -121,7 +123,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     @import '../assets/scss/variables';
 
     .portfolio {

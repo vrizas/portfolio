@@ -37,7 +37,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   @import '../assets/scss/variables';
 
   .home {
@@ -196,7 +196,7 @@ export default {
         .back-text {
           font-size: $fs-h1;
           left: 0;
-          transform: translate(-5%, -50%) rotate(-90deg);
+          transform: translate(-5vw, -50%) rotate(-90deg);
         }
       }
 
