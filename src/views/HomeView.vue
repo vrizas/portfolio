@@ -3,8 +3,10 @@
     <div class="photo">
       <div class="img-layer-1" ref="imgLayer1"></div>
       <div class="img-layer-2" ref="imgLayer2"></div>
-      <img draggable="false" src="../assets/img/vrizas.jpg" alt="Vrizas Izza Izzuddin" ref="photo">
-      <span class="back-text">VRIZAS</span>
+      <div class="img-container">
+        <img draggable="false" class="skeleton lazyload" src="../assets/img/vrizas.jpg" alt="Vrizas Izza Izzuddin" ref="photo">
+        <span class="back-text">VRIZAS</span>
+      </div>
     </div>
     <article ref="homeArticle">
       <h1>Vrizas Izza<span> Izzuddin</span></h1>
@@ -50,14 +52,16 @@ export default {
 
     .photo {
       width: 100%;
-      text-align: center;
+      display: flex;
+      justify-content: center;
       position: relative;
       margin-top: 20px;
 
       img {
         position: relative;
         z-index: 1;
-        width: 70%;
+        width: 60vw;
+        height: 60vw;
         border-radius: 50%;
         box-shadow: inset 3px 3px 4px rgba(0, 0, 0, 0.25);
         border: 5px solid #2B2A2A;
@@ -164,8 +168,7 @@ export default {
       padding: 150px 50px 60px 50px;
 
       .photo {
-        width: 100%;
-        text-align: right;
+        justify-content: flex-end;
         grid-column-start: 2;
         grid-row-start: 1;
     
@@ -179,6 +182,7 @@ export default {
           right: -3.5%;
           z-index: 1;
         }
+
         .img-layer-2 {
           width: 70%;
           height: 100%;
@@ -188,15 +192,23 @@ export default {
           top: 10%;
           right: -7%;
         }
+
+        .img-container {
+          width: fit-content;
+          position: relative;
+        }
+
         img {
+          width: 30vw;
+          height: 30vw;
           border-radius: 15px;
           border-width: 0;
         }
 
         .back-text {
           font-size: $fs-h1;
-          left: 0;
-          transform: translate(-5vw, -50%) rotate(-90deg);
+          left: -18vw;
+          transform: translate(0, -50%) rotate(-90deg);
         }
       }
 
@@ -258,7 +270,8 @@ export default {
         .back-text {
           font-size: 3.5vw;
           top: 25%;
-          transform: translate(15%, -50%) rotate(-90deg);
+          left: -10vw;
+          transform: translate(0, -50%) rotate(-90deg);
         }
       }
 
