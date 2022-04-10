@@ -15,19 +15,19 @@
     <form ref="form" @submit.prevent="sendEmail">
         <div data-aos="zoom-in-up" data-aos-offset="-10">
             <label for="from_name">Nama Anda:</label>
-            <input type="text" name="from_name" id="from_name" ref="from_name">
+            <input type="text" name="from_name" id="from_name" ref="from_name" required>
         </div>
         <div data-aos="zoom-in-up">
             <label for="from_email">Email Anda:</label>
-            <input type="email" name="from_email" id="from_email" ref="from_email">
+            <input type="email" name="from_email" id="from_email" ref="from_email" required>
         </div>
         <div data-aos="zoom-in-up">
             <label for="subject">Subjek Anda:</label>
-            <input type="text" name="subject" id="subject" ref="subject">
+            <input type="text" name="subject" id="subject" ref="subject" required>
         </div>
         <div data-aos="zoom-in-up">
             <label for="message">Pesan Anda:</label>
-            <textarea name="message" id="message" ref="message" rows="5" cols="50"></textarea>
+            <textarea name="message" id="message" ref="message" rows="5" cols="50" required></textarea>
         </div>
         <div class="action">
             <button class="send-btn" data-aos="fade-up-right">Kirim <ion-icon name="send"></ion-icon></button>
@@ -57,7 +57,7 @@ export default {
   },
   methods: {
     sendEmail() {
-      emailjs.sendForm('service_1qcv1f9', 'template_h9r7oxp', this.$refs.form, '17U8-VxV5XX-GAP37')
+        emailjs.sendForm('service_1qcv1f9', 'template_h9r7oxp', this.$refs.form, '17U8-VxV5XX-GAP37')
         .then((result) => {
             this.flashMessage = true
             this.flashMessageText = 'Pesan terkirim'
