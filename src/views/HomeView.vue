@@ -35,6 +35,8 @@ export default {
     gsap.from(this.$refs.imgLayer2, {duration: 0.5, x: 200, opacity: 0, ease: 'power2'})
     gsap.from(this.$refs.imgLayer1, {duration: 0.5, x: 200, opacity: 0, ease: 'power2'})
     gsap.from(this.$refs.photo, {duration: 0.5, x: 200, ease: 'power2'})
+
+    document.querySelector('.indicator').style.display = 'block'
   }
 }
 </script>

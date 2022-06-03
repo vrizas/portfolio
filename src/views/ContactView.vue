@@ -54,6 +54,8 @@ export default {
   mounted() {
     AOS.init()
     window.scrollTo({ top: 0, behavior: 'smooth' })
+
+    document.querySelector('.indicator').style.display = 'block'
   },
   methods: {
     sendEmail() {
