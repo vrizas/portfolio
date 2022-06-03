@@ -86,6 +86,7 @@ export default {
         window.scrollTo({ top: 0, behavior: 'smooth' })
 
         this.currentTablink = this.$route.hash || '#'
+        document.querySelector('.indicator').style.display = 'block'
 
         window.onscroll = () => {
             const routeName = this.$route.name

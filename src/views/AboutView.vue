@@ -129,6 +129,8 @@ export default {
 
     gsap.from(this.$refs.personalInfo, {duration: 0.5, x: -200, opacity: 0, ease: 'power2'})
     gsap.from(this.$refs.myServices, {duration: 0.5, x: 200, opacity: 0, ease: 'power2'})
+
+    document.querySelector('.indicator').style.display = 'block'
   }
 }
 </script>
